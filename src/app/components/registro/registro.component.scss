@@ -1,0 +1,24 @@
+body{
+  background: linear-gradient(to right, #6793F4, #6793F4);
+  font-family: 'Helvetica';
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: .75em;
+  padding-right: .75em;
+  }
+
+.card-registration .select-arrow {
+  top: 13px;
+}
+
+.img{
+  max-height: max-content;
+}
+
+.btn-primary{
+  background-color: #6793F4 !important;
+  color: #fff;
+}
