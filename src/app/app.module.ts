@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { EmpresaComponent } from './components/empresa/empresa.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +22,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RegistroComponent,
     DashboardComponent,
     NavbarComponent,
-    SucursalesComponent
+    SucursalesComponent,
+    EmpresaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    HttpClientModule,
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
