@@ -1,28 +1,142 @@
 <html>
-<body>
-<div class="container">
-  <!-- Button Abrir Modal Agregar Empresa -->
-  <br>
-  <br>
-  <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpresa">
-    Agregar Empresa
-  </button>
-  <br>
-  <br>
-  <br>
+  <body>
+    <div class="container">
+      <br/>
+      <br/>
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarProducto">
+        Agregar Empresa
+      </button>
+      <br/>
+      <br/>
+      <br/>
+      <div class="row">
+        <div class="col-12 col-md-4" *ngFor="let emp of empresaModelGet">
+          <div class="card text-center mb-3">
+            <div class="card-header">
+             {{ emp._id }}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title"><!--{{ emp.nombre }}--></h5>
+              <p class="card-text">
+                Su contacto es: <!--{{ emp.email }}-->
+                <br/>
+              </p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+            <div class="card-footer text-muted">2 days ago</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <!--Modal Agregar Producto-->
+    <div
+      class="modal fade" id="modalAgregarProducto"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label"
+                  >Nombre de la Empresa</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputNombre"
+                  name="nombre"
+                  #nombre="ngModel"
+                  [(ngModel)]="empresaModelPost.nombre"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="inputEmail" class="form-label"
+                  >Correo de Contacto</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputEmail"
+                  name="email"
+                  #email="ngModel"
+                  [(ngModel)]="empresaModelPost.email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputPassword"
+                  name="password"
+                  #password="ngModel"
+                  [(ngModel)]="empresaModelPost.password"
+                />
+              </div>
+              <!--<label for="inputTipo" class="form-label">Tipo de Empresa</label>
+          <select class="form-select" aria-label="Default select example">
+            <option selected>Elije el Tipo de Empresa</option>
+            <option value="1">Restaurante</option>
+            <option value="2">Distribuidora</option>
+            <option value="3">Banco</option>
+            <option value="4">Supermercado</option>
+            <option value="5">Electrodomésticos</option>
+            <option value="6">Otro</option>
+            [(ngModel)]="empresaModelPost.tipo">
+          </select> -->
+
+              <!--<div class="mb-3">
+            <label for="inputPrecio" class="form-label">Precio</label>
+            <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel"
+            [(ngModel)]="empresaModelPost.password">
+          </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="postEmpresas()"
+            >
+              Agregar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--<div class="container">
   <div class="row">
-    <!--<div class="col-12 col-md-4" *ngFor="let prod of productoModelGet">-->
-      <div class="col-12 col-md-4" *ngFor="let empr empresaModelGet">
-      <div class="card text-center mb-3">
+    <div class="col-12 col-md-4" *ngFor="let empresa of empresaModelGet">
+      <div class="card text-center">
         <div class="card-header">
-          {{ empr._id }}
+          Featured
         </div>
         <div class="card-body">
-          <h5 class="card-title">{{empr.nombre}}</h5>
-          <p class="card-text">
-            El email es: {{ empr.email }} <br>
-           <!--Su password actual es de: {{ empr.password }}-->
-          </p>
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <a href="#" class="btn btn-primary">Go somewhere</a>
         </div>
         <div class="card-footer text-muted">
@@ -31,41 +145,4 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- Modal Agregar Producto -->
-<div class="modal fade" id="modalAgregarEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="mb-3">
-            <label for="inputNombre" class="form-label">Nombre de la Empresa</label>
-            <input type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
-            [(ngModel)]="empresaModelPost.nombre">
-          </div>
-          <div class="mb-3">
-            <label for="inputCantidad" class="form-label">Correo de Contacto</label>
-            <input type="text" class="form-control" id="inputCantidad" name="cantidad" #cantidad="ngModel"
-            [(ngModel)]="empresaModelPost.email">
-          </div>
-          <!--<div class="mb-3">
-            <label for="inputPrecio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel"
-            [(ngModel)]="empresaModelPost.password">
-          </div>-->
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="postProductos()">Agregar</button>
-      </div>
-    </div>
-  </div>
-</div>
-</body>
-</html>
+</div>-->

@@ -8,19 +8,18 @@ import { Empresa } from '../models/empresas.model';
 })
 export class EmpresasService {
   public url: String = 'http://localhost:3000/api';
-  public headersVariable = new HttpHeaders().set('Content-Type', 'application/json');
-
+  public headersVariable = new HttpHeaders().set('Content-Type','application/json');
 
   constructor(public _http: HttpClient) { }
 
   obtenerEmpresas(): Observable<any> {
 
-    return this._http.get(this.url + '/empresas', { headers: this.headersVariable })
+    return this._http.get(this.url + '/obtenerEmpresas', { headers: this.headersVariable })
   }
 
   agregarEmpresa(modeloEmpresa: Empresa): Observable<any> {
     let parametros = JSON.stringify(modeloEmpresa);
 
-    return this._http.post(this.url + '/agregarEmpresa', parametros, {headers: this.headersVariable})
+    return this._http.post(this.url + '/registrarEmpresa', parametros, {headers: this.headersVariable})
   }
 }
