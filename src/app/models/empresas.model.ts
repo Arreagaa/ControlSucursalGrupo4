@@ -4,7 +4,7 @@ export class Empresa {
     public nombre: String,
     public email: String,
     public password: String,
-    //public tipo: String,
+    public tipo: String,
     public rol: String
   ){}
 }

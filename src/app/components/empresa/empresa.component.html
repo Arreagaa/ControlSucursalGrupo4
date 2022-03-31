@@ -3,7 +3,7 @@
     <div class="container">
       <br/>
       <br/>
-      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarProducto">
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEmoresa">
         Agregar Empresa
       </button>
       <br/>
@@ -12,26 +12,47 @@
       <div class="row">
         <div class="col-12 col-md-4" *ngFor="let emp of empresaModelGet">
           <div class="card text-center mb-3">
-            <div class="card-header">
+            <!--<div class="card-header">
              {{ emp._id }}
             </div>
             <div class="card-body">
-              <h5 class="card-title"><!--{{ emp.nombre }}--></h5>
+              <h5 class="card-title">{{ emp.nombre }}</h5>
               <p class="card-text">
-                Su contacto es: <!--{{ emp.email }}-->
+                Su contacto es: {{ emp.email }}
                 <br/>
               </p>
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
-            <div class="card-footer text-muted">2 days ago</div>
+            <div class="card-footer text-muted">2 days ago</div>-->
+
+            <div class="card mb-2" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="https://p4.wallpaperbetter.com/wallpaper/202/251/688/building-architecture-vertical-wallpaper-preview.jpg" class="img-fluid rounded-start" alt="">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ emp.nombre }}</h5>
+                    <p class="card-text">Empresa de tipo {{emp.tipo}} dedicado a dar servicios de buena calidad.
+                    </p>
+                    <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
+                    <div class="space md-4">
+                      <a href="#" class="card-link">Modificar</a>
+                      <a href="#" class="card-link">Sucuarsales</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a href="#" class="btn btn-danger">Eliminar</a>
           </div>
         </div>
       </div>
     </div>
 
-     <!--Modal Agregar Producto-->
+     <!--Modal Agregar Empresa-->
     <div
-      class="modal fade" id="modalAgregarProducto"
+      class="modal fade" id="modalAgregarEmoresa"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -64,45 +85,21 @@
               </div>
               <div class="mb-3">
                 <label for="inputEmail" class="form-label"
-                  >Correo de Contacto</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputEmail"
-                  name="email"
-                  #email="ngModel"
-                  [(ngModel)]="empresaModelPost.email"
-                />
+                  >Correo de Contacto</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" #email="ngModel"
+                [(ngModel)]="empresaModelPost.email"/>
               </div>
               <div class="mb-3">
                 <label for="inputPassword" class="form-label">Password</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputPassword"
-                  name="password"
-                  #password="ngModel"
-                  [(ngModel)]="empresaModelPost.password"
-                />
+                <input type="text" class="form-control" id="inputPassword" name="password" #password="ngModel" [(ngModel)]="empresaModelPost.password"/>
               </div>
-              <!--<label for="inputTipo" class="form-label">Tipo de Empresa</label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Elije el Tipo de Empresa</option>
-            <option value="1">Restaurante</option>
-            <option value="2">Distribuidora</option>
-            <option value="3">Banco</option>
-            <option value="4">Supermercado</option>
-            <option value="5">Electrodomésticos</option>
-            <option value="6">Otro</option>
-            [(ngModel)]="empresaModelPost.tipo">
-          </select> -->
+              <div>
+                <div class="mb-3">
+                  <label for="inputTipo" class="form-label">Tipo de Empresa</label>
+                <input type="select" class="form-control" id="inputTipo" name="tipo" #tipo="ngModel" [(ngModel)]="empresaModelPost.tipo"/>
+              </div>
+              </div>
 
-              <!--<div class="mb-3">
-            <label for="inputPrecio" class="form-label">Precio</label>
-            <input type="text" class="form-control" id="inputPrecio" name="precio" #precio="ngModel"
-            [(ngModel)]="empresaModelPost.password">
-          </div>
             </form>
           </div>
           <div class="modal-footer">
@@ -124,25 +121,3 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
-
-<!--<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-4" *ngFor="let empresa of empresaModelGet">
-      <div class="card text-center">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-        <div class="card-footer text-muted">
-          2 days ago
-        </div>
-      </div>
-    </div>
-  </div>
-</div>-->

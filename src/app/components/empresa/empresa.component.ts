@@ -16,7 +16,7 @@ export class EmpresaComponent implements OnInit {
   public empresaModelPost: Empresa;
 
   constructor(private _empresaService: EmpresasService) {
-    this.empresaModelPost = new Empresa('','', '','', '');
+    this.empresaModelPost = new Empresa('','', '','', '', '');
   }
 
   ngOnInit(): void {
@@ -26,7 +26,8 @@ export class EmpresaComponent implements OnInit {
   getEmpresas(){
     this._empresaService.obtenerEmpresas().subscribe(
       (response) => {
-        this.empresaModelGet = response.empresas;
+        this.empresaModelGet = response.usuarios;
+        console.log(response);
         console.log(this.empresaModelGet);
       },
       (error)=>{
