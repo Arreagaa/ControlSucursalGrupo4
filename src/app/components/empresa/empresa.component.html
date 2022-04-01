@@ -1,14 +1,56 @@
 <html>
   <body>
     <div class="container">
-      <br/>
-      <br/>
+      <br>
+
       <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarEmpresa">
         Agregar Empresa
       </button>
-      <br/>
-      <br/>
-      <br/>
+<br>
+   <br>
+
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="https://www.bbvaopenmind.com/wp-content/uploads/2009/02/BBVA-OpenMind-fronteras-17-La-economi%CC%81a-de-la-empresa-vicente-salas-fumas.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h2>Apartados de Empresas  </h2>
+              <p>Informacion de todas las empresas detallado</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://utech.com.br/site/wp-content/uploads/2019/07/background-empresa.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 style="color:white">Poder ver sucursales </h2>
+              <p style="color:white">aqui podremos ver las sucursales de cada empresa</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://cooperfinance.pt/wp-content/uploads/2015/05/criacao-empresas-background.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 class="color-white">Amigable con el usuario</h2>
+              <p  style="color:white">Fácil utilización para que puedas ver toda la información de forma sencilla </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+      <div class="card text-white bg my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">Selecciona la empresa para poder ver sus sucursales</p></div>
+    </div>
+<br>
       <div class="row">
         <div class="col-12 col-md-4" *ngFor="let emp of empresaModelGet">
           <div class="card text-center mb-3">
@@ -24,6 +66,7 @@
               <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
             <div class="card-footer text-muted">2 days ago</div>-->
+
 
             <div class="card mb-2" style="max-width: 540px;">
               <div class="row g-0">
