@@ -15,28 +15,29 @@
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
           <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        <div class="carousel-inner">
+        <div class="carousel-inner" lg-12>
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="https://www.bbvaopenmind.com/wp-content/uploads/2009/02/BBVA-OpenMind-fronteras-17-La-economi%CC%81a-de-la-empresa-vicente-salas-fumas.jpg" class="d-block w-100" alt="...">
+            <img src="https://ellevo.com/es/wp-content/uploads/sites/3/2018/09/06-csc-em-grandes-empresas.jpg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h2>Apartados de Empresas  </h2>
-              <p>Informacion de todas las empresas detallado</p>
-            </div>
-          </div>
-          <div class="carousel-item" data-bs-interval="2000">
-            <img src="https://utech.com.br/site/wp-content/uploads/2019/07/background-empresa.jpg" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h2 style="color:white">Poder ver sucursales </h2>
-              <p style="color:white">aqui podremos ver las sucursales de cada empresa</p>
+              <h2 style="color:white">Apartados de Empresas  </h2>
+              <p style="color:white">Datos importatntes de las empresas de forma detallada</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="https://cooperfinance.pt/wp-content/uploads/2015/05/criacao-empresas-background.jpg" class="d-block w-100" alt="...">
+            <img src="https://fondosmil.com/fondo/71316.png" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
-              <h2 class="color-white">Amigable con el usuario</h2>
-              <p  style="color:white">Fácil utilización para que puedas ver toda la información de forma sencilla </p>
+              <h2 class="color-white" >Amigable con el usuario</h2>
+              <p >Fácil utilización para que puedas ver toda la información de forma sencilla </p>
             </div>
           </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://www.piale.com.gt/images/venta-de-oficinas-en-zona-10.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h2 style="color:white">Puede verificar sucursales de forma concreta</h2>
+              <p style="color:white"> Podremos ver las sucursales que posee de cada empresa</p>
+            </div>
+          </div>
+
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,26 +49,12 @@
         </button>
       </div>
       <div class="card text-white bg my-5 py-4 text-center">
-        <div class="card-body"><p class="text-white m-0">Selecciona la empresa para poder ver sus sucursales</p></div>
+        <div class="card-body"><p class="text-white m-0">Puedes interactuar con las Empresas, desde modificarlas hasta ver sus suscursales.</p></div>
     </div>
 <br>
       <div class="row">
         <div class="col-12 col-md-4" *ngFor="let emp of empresaModelGet">
           <div class="card text-center mb-3">
-            <!--<div class="card-header">
-             {{ emp._id }}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ emp.nombre }}</h5>
-              <p class="card-text">
-                Su contacto es: {{ emp.email }}
-                <br/>
-              </p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-            <div class="card-footer text-muted">2 days ago</div>-->
-
-
             <div class="card mb-2" style="max-width: 540px;">
               <div class="row g-0">
                 <div class="col-md-4">
@@ -81,7 +68,7 @@
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
                       <a href="#" class="card-link">Modificar</a>
-                      <a href="#" class="card-link">Sucuarsales</a>
+                      <a routerLink="/Dashboard" class="card-link">Sucuarsales</a>
                   </div>
                   </div>
                 </div>
@@ -94,72 +81,54 @@
     </div>
 
      <!--Modal Agregar Empresa-->
-    <div
-      class="modal fade" id="modalAgregarEmpresa"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="modalAgregarEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Agregar Empresa</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+          <div class="modal-header" style="background-color: #6793F4">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Agregar Empresa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form>
+
+              <!--<div class="required">
+                <div class="mb-3">
+                  <label for="inputNombre" class="form-label">Nombre de la Empresa</label>
+                  <input pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" placeholder="Taco Bell" type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+                  [(ngModel)]="empresaModelPost.nombre">
+                </div>
+            </div>-->
+
               <div class="mb-3">
-                <label for="inputNombre" class="form-label"
-                  >Nombre de la Empresa</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="inputNombre"
-                  name="nombre"
-                  #nombre="ngModel"
-                  [(ngModel)]="empresaModelPost.nombre"
-                />
+                <label for="inputNombre" class="form-label">Nombre de la Empresa</label>
+                <input pattern="^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$" placeholder="Taco Bell" type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+                [(ngModel)]="empresaModelPost.nombre" required>
               </div>
+
               <div class="mb-3">
-                <label for="inputEmail" class="form-label"
-                  >Correo de Contacto</label>
-                <input type="email" class="form-control" id="inputEmail" name="email" #email="ngModel"
-                [(ngModel)]="empresaModelPost.email"/>
+                <label for="inputEmail" class="form-label">Correo de Contacto</label>
+                <input pattern="^[\\w-+]+(\\.[\\w-]{1,62}){0,126}@[\\w-]{1,63}(\\.[\\w-]{1,62})+/[\\w-]+$" placeholder="Taco@gmail.com" type="email" class="form-control" id="inputEmail" name="email" #email="ngModel"
+                [(ngModel)]="empresaModelPost.email" required>
               </div>
+
               <div class="mb-3">
-                <label for="inputPassword" class="form-label">Password</label>
-                <input type="text" class="form-control" id="inputPassword" name="password" #password="ngModel" [(ngModel)]="empresaModelPost.password"/>
+                <label for="inputPassword" class="form-label">Clave de Acceso</label>
+                <input type="password" class="form-control" id="inputPassword" placeholder="Tu clave de Acceso" name="password" #password="ngModel"
+                [(ngModel)]="empresaModelPost.password" required>
               </div>
+
               <div>
                 <div class="mb-3">
                   <label for="inputTipo" class="form-label">Tipo de Empresa</label>
-                <input type="select" class="form-control" id="inputTipo" name="tipo" #tipo="ngModel" [(ngModel)]="empresaModelPost.tipo"/>
+                <input type="select" class="form-control" placeholder="Restaurante" id="inputTipo" name="tipo" #tipo="ngModel" [(ngModel)]="empresaModelPost.tipo" required>
               </div>
               </div>
 
             </form>
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Close
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="postEmpresas()"
-            >
-              Agregar
-            </button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="postEmpresas()">Agregar</button>
           </div>
         </div>
       </div>
