@@ -67,14 +67,14 @@
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
-                      <a href="#" class="card-link">Modificar</a>
+                      <a type="button" class="card-link">Modificar</a>
                       <a routerLink="/Dashboard" class="card-link">Sucuarsales</a>
                   </div>
                   </div>
                 </div>
               </div>
             </div>
-            <a href="#" class="btn btn-danger">Eliminar</a>
+            <button type="button" class="btn btn-primary" (click)="deleteEmpresa(emp._id)">Eliminar</button>
           </div>
         </div>
       </div>

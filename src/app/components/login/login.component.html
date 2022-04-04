@@ -10,17 +10,19 @@
         <form>
            <div class="form-group">
               <label>Ingresa tu Usuario o Correo</label>
-              <input type="text" class="form-control" placeholder="@gmail.com">
+              <input type="text" class="form-control" placeholder="@gmail.com" name="email" #email="ngModel"
+              [(ngModel)]="usuarioModel.email" required>
            </div>
            <br>
            <div class="form-group">
-              <label>Password</label>
+              <label>Clave de Acceso</label>
 
-              <input type="password" class="form-control" placeholder="Password">
+              <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel"
+              [(ngModel)]="usuarioModel.password">
 
            </div>
            <br>
-           <button type="button" class="btn btn-black btn-lg" routerLink="/Empresa">Iniciar Sesion</button>
+           <button type="button" class="btn btn-black btn-lg" (click)="login()">Iniciar Sesion</button>
            <br>
            <br>
            <button type="button" class="btn btn-primary btn-lg" routerLink="/Registro">¿No tienes una cuenta?</button>

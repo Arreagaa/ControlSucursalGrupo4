@@ -12,14 +12,22 @@ export class EmpresasService {
 
   constructor(public _http: HttpClient) { }
 
-  obtenerEmpresas(): Observable<any> {
+  obtenerEmpresas(token): Observable<any> {
+    let headersToken = this.headersVariable.set('Authorization', token)
 
-    return this._http.get(this.url + '/obtenerEmpresas', { headers: this.headersVariable })
+    return this._http.get(this.url + '/obtenerEmpresas', { headers: headersToken })
+
+    //return this._http.get(this.url + '/obtenerEmpresas', { headers: this.headersVariable })
   }
 
   agregarEmpresa(modeloEmpresa: Empresa): Observable<any> {
     let parametros = JSON.stringify(modeloEmpresa);
 
     return this._http.post(this.url + '/registrarEmpresa', parametros, {headers: this.headersVariable})
+  }
+
+  eliminarEmpresa(id : String): Observable<any> {
+
+    return this._http.delete(this.url + '/eliminarEmpresa/' + id, { headers: this.headersVariable })
   }
 }
