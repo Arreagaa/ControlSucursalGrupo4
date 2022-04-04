@@ -63,7 +63,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title">{{ emp.nombre }}</h5>
-                    <p class="card-text">Empresa de tipo {{emp.tipo}} dedicado a dar servicios de buena calidad.
+                    <p class="card-text">Empresa de tipo {{emp.tipo}} dedicada a otorgar servicios de buena calidad.
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
@@ -120,7 +120,8 @@
               <div>
                 <div class="mb-3">
                   <label for="inputTipo" class="form-label">Tipo de Empresa</label>
-                <input type="select" class="form-control" placeholder="Restaurante" id="inputTipo" name="tipo" #tipo="ngModel" [(ngModel)]="empresaModelPost.tipo" required>
+                <input type="select" class="form-control" placeholder="Restaurante" id="inputTipo" name="tipo" #tipo="ngModel"
+                [(ngModel)]="empresaModelPost.tipo" required>
               </div>
               </div>
 
@@ -128,7 +129,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="postEmpresas()">Agregar</button>
+            <button type="button" class="btn btn-primary" (click)="postEmpresas()" data-bs-dismiss="modal">Agregar</button>
           </div>
         </div>
       </div>
