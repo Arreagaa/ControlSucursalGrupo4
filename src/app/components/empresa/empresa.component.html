@@ -49,7 +49,7 @@
         </button>
       </div>
       <div class="card text-white bg my-5 py-4 text-center">
-        <div class="card-body"><p class="text-white m-0">Puedes interactuar con las Empresas, desde modificarlas hasta ver sus suscursales.</p></div>
+        <div class="card-body"><p class="text-white m-0">Puedes interactuar con las Empresas, desde modificarlas hasta ver sus suscursales, presiona el nombre para ver sus Productos.</p></div>
     </div>
 <br>
       <div class="row">
@@ -62,7 +62,7 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title">{{ emp.nombre }}</h5>
+                    <h5 class="card-title" routerLink="/Dashboard">{{ emp.nombre }}</h5>
                     <p class="card-text">Empresa de tipo {{emp.tipo}} dedicada a otorgar servicios de buena calidad.
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
