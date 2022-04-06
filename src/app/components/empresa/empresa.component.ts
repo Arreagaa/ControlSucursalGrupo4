@@ -41,7 +41,7 @@ export class EmpresaComponent implements OnInit {
   }
 
   postEmpresas(){
-    this._empresaService.agregarEmpresa(this.empresaModelPost).subscribe(
+    this._empresaService.agregarEmpresa(this.empresaModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getEmpresas();
@@ -54,7 +54,7 @@ export class EmpresaComponent implements OnInit {
   }
 
   deleteEmpresa(idEmpresa) {
-    this._empresaService.eliminarEmpresa(idEmpresa).subscribe(
+    this._empresaService.eliminarEmpresa(idEmpresa, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getEmpresas();
