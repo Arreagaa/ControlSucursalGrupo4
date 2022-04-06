@@ -16,7 +16,6 @@ export class EmpresasService {
     let headersToken = this.headersVariable.set('Authorization', token)
 
     return this._http.get(this.url + '/obtenerEmpresas', { headers: headersToken })
-
     //return this._http.get(this.url + '/obtenerEmpresas', { headers: this.headersVariable })
   }
 

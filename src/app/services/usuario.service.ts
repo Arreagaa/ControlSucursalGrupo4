@@ -47,4 +47,10 @@ export class UsuarioService {
     return this.identidad;
   }
 
+  agregarUsuario(modeloUsuario: Usuario): Observable<any> {
+    let parametros = JSON.stringify(modeloUsuario);
+
+    return this._http.post(this.url + '/registrarUsuario', parametros, {headers: this.headersVariable})
+  }
+
 }
