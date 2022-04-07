@@ -1,47 +1,27 @@
 <!DOCTYPE html>
-<html>
-  <br>
-<body>
-<br>
-<br>
-<br>
-<div class="container">
-  <div class="mq-panel-wrapper">
-    <div class="mq-panel-header">
-      <h3>Empresa</h3>
-    </div>
-
-    <div class="mq-panel-body">
-      <ul class="mq-comment">
-
-        <li class="left clearfix text-center">
-          <div class="mq-comment-body clearfix">
-            <div class="header">
-              <br>
-              <strong class="primary-font">Taco Bell</strong>
+<html lang="es">
+    <body>
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 align-items-center my-5">
+                <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://logos-marcas.com/wp-content/uploads/2021/10/Taco-Bell-Logo.png"/></div>
+                <div class="col-lg-5">
+                    <h1 class="font-weight-light">Sucursales Taco Bell</h1>
+                    <br>
+                    <p>Taco Bell es una cadena de restaurantes de comida rápida, especializada en cocina Tex-Mex. Taco Bell
+                      es una cadena estadounidense de restaurantes de comida rápida que se originó en Irvine,
+                      California en 1962, por el fundador Glen Bell. Taco Bell es una subsidiaria de Yum! Brands, Inc</p>
+          </div>
+           </div>
+            <div class="card text-white bg my-5 py-4 text-center">
+                <div class="card-body"><p class="text-white m-0">Lleva tu el control de tus sucursales y sus ubicaciones concretas, empieza ya.</p></div>
             </div>
-            <br>
-            <p class="taco">
-              Cadena de restaurantes de comida rápida, especializada en cocina Tex-Mex.
-               Taco Bell es una cadena estadounidense de restaurantes de comida rápida que se originó en Irvine,
-               California en 1962, por el fundador Glen Bell. Taco Bell es una subsidiaria de Yum! Brands, Inc.
-            </p>
 
-            <br>
-            <span class="mq-comment-img">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTyVDgreK6tAREIVRmTNC00cLxMWBfFyF8fSg&usqp=CAU" width="100"
-                alt="User Avatar" class="img-circle" />
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
+        </div>
 
-  </div>
-
-  <div class="mq-panel-wrapper">
-    <div class="mq-panel-header">
-      <h3>Sucursales</h3>
+<div>
+  <div class="mq-panel-wrapper my-1 py-4 text-center">
+    <div class="mq-panel-header  my-1 py-4 text-center">
+      <h3 >Sucursales</h3>
     </div>
 
 
@@ -53,10 +33,26 @@
         <div class="mq-friends thumbnail">
           <div class="mq-friend-img text-center">
 
-              <p>Taco Bell, Paseo de la Sexta</p>
+              <p >Taco Bell,Paseo de la Sexta <span style="padding-left:400px;"></span>
+                <a type="button" class="card-link">Modificar</a>
+                <a routerLink="/productoE" class="card-link">Eliminar</a></p>
+
           </div>
 
+        </div>
+      </div>
 
+
+      <div class="nav-link" routerLink="/Sucursales" routerLinkActive="active">
+
+        <div class="mq-friends thumbnail">
+          <div class="mq-friend-img text-center">
+
+
+            <p>Taco Bell, Gran Centro Comercial zona 4 <span style="padding-left:200px;"></span>
+              <a type="button" class="card-link">Modificar</a>
+              <a routerLink="/inicio" class="card-link">Eliminar</a></p>
+          </div>
 
         </div>
 
@@ -66,20 +62,9 @@
 
         <div class="mq-friends thumbnail">
           <div class="mq-friend-img text-center">
-
-
-            <p>Taco Bell, Gran Centro Comercial zona 4</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="nav-link" routerLink="/Sucursales" routerLinkActive="active">
-
-        <div class="mq-friends thumbnail">
-          <div class="mq-friend-img text-center">
-            <p>Taco Bell, Calzada Roosevelt</p>
+            <p>Taco Bell, Calzada Roosevelt <span style="padding-left:400px;"></span>
+              <a type="button" class="card-link">Modificar</a>
+              <a routerLink="/inicio" class="card-link">Eliminar</a></p>
           </div>
 
         </div>
@@ -93,4 +78,5 @@
   </div>
 </div>
 </body>
+
 </html>

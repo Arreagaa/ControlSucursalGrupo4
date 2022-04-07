@@ -14,6 +14,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { EmpresaComponent } from './components/empresa/empresa.component';
 
+import { ProductosEComponent } from './components/productos-e/productos-e.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { EmpresaComponent } from './components/empresa/empresa.component';
     DashboardComponent,
     NavbarComponent,
     SucursalesComponent,
-    EmpresaComponent
+    EmpresaComponent,
+    ProductosEComponent
   ],
   imports: [
     BrowserModule,
