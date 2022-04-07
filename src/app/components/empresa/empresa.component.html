@@ -17,7 +17,7 @@
         </div>
         <div class="carousel-inner" lg-12>
           <div class="carousel-item active" data-bs-interval="10000">
-            <img src="https://ellevo.com/es/wp-content/uploads/sites/3/2018/09/06-csc-em-grandes-empresas.jpg" class="d-block w-100" alt="...">
+            <img src="https://ellevo.com/es/wp-content/uploads/sites/3/2018/09/06-csc-em-grandes-empresas.jpg"  class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
               <h2 style="color:white">Apartados de Empresas  </h2>
               <p style="color:white">Datos importatntes de las empresas de forma detallada</p>
@@ -62,13 +62,13 @@
                 </div>
                 <div class="col-md-8">
                   <div class="card-body">
-                    <h5 class="card-title" routerLink="/Dashboard">{{ emp.nombre }}</h5>
+                    <h5 class="card-title" routerLink="/productoE" routerLinkActive="active">{{ emp.nombre }}</h5>
                     <p class="card-text">Empresa de tipo {{emp.tipo}} dedicada a otorgar servicios de buena calidad.
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
                       <a type="button" class="card-link">Modificar</a>
-                      <a routerLink="/Dashboard" class="card-link">Sucuarsales</a>
+                      <a routerLink="/Dashboard" class="card-link" routerLinkActive="active">Sucuarsales</a>
                   </div>
                   </div>
                 </div>
