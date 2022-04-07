@@ -2,6 +2,12 @@
 <html lang="es">
     <body>
         <div class="container px-4 px-lg-5">
+          <br>
+          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursal">
+            Agregar Sucursal
+          </button>
+        <br>
+          <br>
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://logos-marcas.com/wp-content/uploads/2021/10/Taco-Bell-Logo.png"/></div>
                 <div class="col-lg-5">
@@ -12,13 +18,41 @@
                       California en 1962, por el fundador Glen Bell. Taco Bell es una subsidiaria de Yum! Brands, Inc</p>
           </div>
            </div>
+           <br>
             <div class="card text-white bg my-5 py-4 text-center">
                 <div class="card-body"><p class="text-white m-0">Lleva tu el control de tus sucursales y sus ubicaciones concretas, empieza ya.</p></div>
             </div>
 
         </div>
 
-<div>
+        <div class="row">
+          <div class="col-12 col-md-4" *ngFor="let emp of sucursalModelGet">
+            <div class="card text-center mb-3">
+              <div class="card mb-2" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="https://p4.wallpaperbetter.com/wallpaper/202/251/688/building-architecture-vertical-wallpaper-preview.jpg" class="img-fluid rounded-start" alt="">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title" routerLink="/Sucursales" routerLinkActive="active">{{ emp.nombreSucursal }}</h5>
+                      <p class="card-text">Empresa Ubicada en {{emp.direccionSucursal}} dedicada a otorgar servicios de buena calidad.
+                      </p>
+                      <div class="space md-4">
+                        <a type="button" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarSucursal" (click)="getSucursalId(emp._id)">Modificar</a>
+                        <a routerLink="/Dashboard" class="card-link" routerLinkActive="active">Sucuarsales</a>
+
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="btn btn-primary" (click)="deleteSucursal(emp._id)">Eliminar</button>
+            </div>
+          </div>
+        </div>
+
+<!--<div>
   <div class="mq-panel-wrapper my-1 py-4 text-center">
     <div class="mq-panel-header  my-1 py-4 text-center">
       <h3>Sucursales</h3>
@@ -26,25 +60,26 @@
 
 
 
-    <div class="mq-panel-body">
+    <div class="mq-panel-body" *ngFor="let emp of sucursalModelGet">
 
       <div class="nav-link" routerLink="/Sucursales" routerLinkActive="active">
 
         <div class="mq-friends thumbnail">
           <div class="mq-friend-img text-center">
 
-              <p class="sucursal-data">Taco Bell, Paseo de la Sexta <span style="padding-left:400px;"></span>
-                <a type="button" class="card-link"><i class="bi bi-pencil-square"></i>Modificar</a>
-                <a routerLink="/productoE" class="card-link">Eliminar</a></p>
+              <p class="sucursal-data">{{ emp.nombreSucursal }}<span style="padding-left:400px;"></span>
+                <a type="button" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarSucursal" (click)="getEmpresaId(emp._id)">Modificar</a>
+                <a type="button" class="card-link" (click)="deleteSucursal(emp._id)">Eliminar</a>
 
           </div>
 
         </div>
+        <button type="button" class="btn btn-primary" (click)="deleteSucursal(emp._id)">Eliminar</button>
       </div>
 
       <div class="nav-link" routerLink="/Sucursales" routerLinkActive="active">
 
-        <div class="mq-friends thumbnail">
+       <div class="mq-friends thumbnail">
           <div class="mq-friend-img text-center">
             <p class="sucursal-data">Taco Bell, Calzada Roosevelt <span style="padding-left:400px;"></span>
               <a type="button" class="card-link">Modificar</a>
@@ -54,13 +89,75 @@
         </div>
 
       </div>
-
-
-
     </div>
+  </div>
+</div>-->
 
+<!--Modal Agregar Empresa-->
+<div class="modal fade" id="modalAgregarSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #6793F4">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: white">Agregar Sucursal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <div class="mb-3">
+            <label for="inputNombreSucursal" class="form-label">Nombre de la Sucursal</label>
+            <input placeholder="Sucursal Centro Comercial Portales" type="text" class="form-control" id="inputNombreSucursal" name="nombreSucursal" #nombreSucursal="ngModel"
+            [(ngModel)]="sucursalModelPost.nombreSucursal" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputDireccion" class="form-label">Direccion de la Sucursal</label>
+            <input placeholder="Zona 18 Ciudad de Guatemala" type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel"
+            [(ngModel)]="sucursalModelPost.direccionSucursal" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="postSucursales()" data-bs-dismiss="modal">Agregar</button>
+      </div>
+    </div>
   </div>
 </div>
+
+<!--Modal Editar Sucursal-->
+<div class="modal fade" id="modalEditarSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #6793F4">
+        <h5 class="modal-title" id="exampleModalLabel" style="color: white">Editar Datos de la Sucursal</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+
+          <div class="mb-3">
+            <label for="inputNombre" class="form-label">Editar Nombre de la Sucursal</label>
+            <input placeholder="Sucursal Centro Comercial Portales" type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+            [(ngModel)]="sucursalModelId.nombreSucursal" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputDireccion" class="form-label">Direccion de la Sucursal</label>
+            <input placeholder="Zona 18 Ciudad de Guatemala" type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel"
+            [(ngModel)]="sucursalModelId.direccionSucursal" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="putSucursales()" data-bs-dismiss="modal">Editar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </body>
 
 </html>
