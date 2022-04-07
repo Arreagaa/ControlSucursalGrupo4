@@ -1,30 +1,23 @@
-
-
 .mq-panel-header{
-  width:66%;
+  width:64.5%;
   height:70x;
   background-color:#6793F4;
   margin-left: auto;
   margin-right: auto;
   text-align:center;
   padding:500px;
-
-
   text-shadow: #FFFFFF;
 }
 
 .mq-panel-header h3{
   color:#fff;
-  font-size:20pt;
   font-weight:30;
   letter-spacing:5px;
   display:table-cell;
   vertical-align:middle;
   text-align:center;
+  font-size: 22px;
 }
-
-
-
 
 .mq-panel-body{
   width:66%;
@@ -37,9 +30,7 @@
   text-align: center;
   background-color:#FFFFFF;
   border-radius:0px 0px 5px 5px;
-
 }
-
 
 .mq-friends{
   width:100%;
@@ -49,7 +40,6 @@
   display:table;
   float:left;
   margin:0px 10px 10px 0px;
-
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: 1px dotted #B3A9A9;
@@ -91,7 +81,6 @@
   font-family: 'Helvetica';
 }
 
-
 p{
   text-align: justify;
 }
@@ -108,6 +97,13 @@ p{
 .card-link{
   text-decoration: none;
   color: #6793F4;
+  margin-left: 80px;
+  font-size: 22px;
+}
+
+.card-link:hover{
+  color: #6793F4;
+  box-shadow: #6793F4;
 }
 
 .btn{
@@ -116,7 +112,9 @@ p{
   box-shadow: #6793F4;
 }
 
-
+.sucursal-data{
+  font-size: 28px;
+}
 
 .card-text{
   text-align: center;
