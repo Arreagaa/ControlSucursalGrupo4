@@ -1,5 +1,46 @@
+.body{
+  font-family: 'Helvetica';
+}
+
+p{
+  text-align: justify;
+}
+
+.text-white{
+  text-align: center;
+}
+
+.bg{
+  background-color: #6793F4;
+  font-size: 18px;
+}
+
+.btn{
+  background-color: #6793F4;
+  border: #6793F4;
+  box-shadow: #6793F4;
+  margin-left: 5px;
+  margin-right: auto;
+  text-decoration: none;
+}
+
+.card-link{
+  border: #6793F4;
+  box-shadow: #6793F4;
+  margin-left: 15px;
+  margin-right: 5px;
+  text-decoration: none;
+  font-size: 16.5px;
+}
+
+.card-text{
+  text-align: center;
+  font-size: 17px;
+}
+
+//PANELES
 .mq-panel-header{
-  width:64.5%;
+  width:63.5%;
   height:70x;
   background-color:#6793F4;
   margin-left: auto;
@@ -9,18 +50,8 @@
   text-shadow: #FFFFFF;
 }
 
-.mq-panel-header h3{
-  color:#fff;
-  font-weight:30;
-  letter-spacing:5px;
-  display:table-cell;
-  vertical-align:middle;
-  text-align:center;
-  font-size: 22px;
-}
-
 .mq-panel-body{
-  width:66%;
+  width:64.5%;
   height:340px;
   text-align: center;
   overflow-y:scroll;
@@ -30,11 +61,13 @@
   text-align: center;
   background-color:#FFFFFF;
   border-radius:0px 0px 5px 5px;
+
 }
+
 
 .mq-friends{
   width:100%;
-  height:150px;
+  height:100px;
   padding:0;
   position:relative;
   display:table;
@@ -43,6 +76,11 @@
   margin-bottom: 10px;
   padding-bottom: 5px;
   border-bottom: 1px dotted #B3A9A9;
+}
+
+.mq-friends p{
+  margin-left: 10px;
+  font-size: 22px;
 }
 
 .mq-friends:hover{
@@ -81,62 +119,6 @@
   font-family: 'Helvetica';
 }
 
-p{
-  text-align: justify;
-}
-
-.text-white{
-  text-align: center;
-}
-
-.bg{
-  background-color: #6793F4;
-  font-size: 18px;
-}
-
-.card-link{
-  text-decoration: none;
-  color: #6793F4;
-  margin-left: 80px;
-  font-size: 22px;
-}
-
-.card-link:hover{
-  color: #6793F4;
-  box-shadow: #6793F4;
-}
-
-.btn{
-  background-color: #6793F4;
-  border: #6793F4;
-  box-shadow: #6793F4;
-}
-
-.sucursal-data{
-  font-size: 28px;
-}
-
-.card-text{
-  text-align: center;
-}
-
-.card-link{
-  text-decoration: none;
+.progress{
   color: #6793F4;
 }
-
-.btn{
-  background-color: #6793F4;
-  border: #6793F4;
-  box-shadow: #6793F4;
-}
-
-.bg{
-  background-color: #6793F4;
-  font-size: 18px;
-}
-
-.card-text{
-  text-align: center;
-}
-
