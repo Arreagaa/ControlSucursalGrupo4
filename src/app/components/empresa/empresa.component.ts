@@ -17,9 +17,11 @@ export class EmpresaComponent implements OnInit {
   //Empresa
   public empresaModelGet: Empresa;
   public empresaModelPost: Empresa;
+  public empresaModelId: Empresa;
 
   constructor(private _empresaService: EmpresasService, private _usuarioService: UsuarioService) {
     this.empresaModelPost = new Empresa('','', '','', '', '');
+    this.empresaModelId = new Empresa('','','','','','');
     this.token = this._usuarioService.obtenerToken();
   }
 
@@ -33,6 +35,19 @@ export class EmpresaComponent implements OnInit {
         this.empresaModelGet = response.usuarios;
         console.log(response);
         console.log(this.empresaModelGet);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  getEmpresaId(idEmpresa){
+    this._empresaService.obtenerEmpresaId(idEmpresa, this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.empresaModelId = response.usuarios;
+        console.log(response);
+        console.log(this.empresaModelId);
       },
       (error)=>{
         console.log(<any>error)
@@ -55,6 +70,19 @@ export class EmpresaComponent implements OnInit {
 
   deleteEmpresa(idEmpresa) {
     this._empresaService.eliminarEmpresa(idEmpresa, this._usuarioService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getEmpresas();
+      },
+      (error)=>{
+        console.log(<any>error);
+
+      }
+    )
+  }
+
+  putEmpresa(){
+    this._empresaService.editarEmpresa(this.empresaModelId, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getEmpresas();

@@ -67,8 +67,9 @@
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
-                      <a type="button" class="card-link">Modificar</a>
+                      <a type="button" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarEmpresa" (click)="getEmpresaId(emp._id)">Modificar</a>
                       <a routerLink="/Dashboard" class="card-link">Sucuarsales</a>
+
                   </div>
                   </div>
                 </div>
@@ -130,6 +131,48 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" (click)="postEmpresas()" data-bs-dismiss="modal">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!--Modal Editar Empresa-->
+    <div class="modal fade" id="modalEditarEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #6793F4">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Editar Datos de la Empresa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="mb-3">
+                <label for="inputNombre" class="form-label">Editar Nombre de la Empresa</label>
+                <input placeholder="Taco Bell" type="text" class="form-control" id="inputNombre" name="nombre" #nombre="ngModel"
+                [(ngModel)]="empresaModelId.nombre" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputEmail" class="form-label">Correo de Contacto</label>
+                <input placeholder="Taco@gmail.com" type="email" class="form-control" id="inputEmail" name="email" #email="ngModel"
+                [(ngModel)]="empresaModelId.email" required>
+              </div>
+
+              <div>
+                <div class="mb-3">
+                  <label for="inputTipo" class="form-label">Tipo de Empresa</label>
+                <input type="select" class="form-control" placeholder="Restaurante" id="inputTipo" name="tipo" #tipo="ngModel"
+                [(ngModel)]="empresaModelId.tipo" required>
+              </div>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="putEmpresa()" data-bs-dismiss="modal">Editar</button>
           </div>
         </div>
       </div>
