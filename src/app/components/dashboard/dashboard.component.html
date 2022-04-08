@@ -3,8 +3,8 @@
     <div class="container">
       <br>
 
-      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursal">
-        Agregar Sucursal
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursal"><i class="bi bi-file-earmark-plus"></i>
+          Agregar Sucursal
       </button>
 
 <br>
@@ -26,8 +26,8 @@
         <div class="card-body"><p class="text-white m-0">Como Empresa, lleva tu el control de tus sucursales y sus ubicaciones concretas, verifica, agregar y más.</p></div>
     </div>
     <p>
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-        Información Importante
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-info-circle"></i>
+          Información Importante
       </a>
     </p>
     <div class="collapse" id="collapseExample">
@@ -46,11 +46,11 @@
                 <div class="card-body">
                   <h4 class="card-title" style="text-align: center;">{{ sur.nombreSucursal }}</h4>
                   <br>
-                  <p class="card-text" style="text-align: center;">Dicha sucursal que satisfase a sus clientes de la mejor manera, se encuentra ubicada en {{ sur.direccionSucursal }},
+                  <p class="card-text" style="text-align: center;">Dicha sucursal, busca satisfaser a sus clientes de la mejor manera, se encuentra ubicada en {{ sur.direccionSucursal }},
                     Guatemala, hasta el dia de hoy.</p>
                   <br>
-                  <a type="button" class="card-link" style="justify-items: center;" data-bs-toggle="modal" data-bs-target="#modalEditarSucursal" (click)="getSucursalId(sur._id)">Modificar</a>
-                  <a type="button" class="card-link" (click)="deleteSucursal(sur._id)">Eliminar</a>
+                  <a type="button" class="card-link" style="justify-items: center;" data-bs-toggle="modal" data-bs-target="#modalEditarSucursal" (click)="getSucursalId(sur._id)"><i class="bi bi-pencil-square"></i> Modificar</a>
+                  <a type="button" class="card-link" (click)="deleteSucursal(sur._id)"><i class="bi bi-file-earmark-minus"></i> Eliminar</a>
                 </div>
               </div>
             </div>
@@ -157,7 +157,7 @@
         </div>
 
           <div class="mb-3 text-center">
-            <a class="btn btn-primary" routerLink="/productoE">Verifica los Productos de la Empresa</a>
+            <a class="btn btn-primary" routerLink="/productoE"><i class="bi bi-check"></i> Verifica los Productos de la Empresa</a>
         </div>
         <div class="container px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 align-items-center my-5">
