@@ -34,7 +34,7 @@ export class SucursalesService {
 
   obtenerSucursalId(id:String, token): Observable<any>{
     let headersToken = this.headersVariable.set('Authorization', token);
-    return this._http.get(this.url + '/obtenerEmpresaId/' + id, {headers: headersToken})
+    return this._http.get(this.url + '/ObtenerSucursalId/' + id, {headers: headersToken})
   }
 
   editarEmpresa(modeloSucursales: Sucursales, token): Observable<any> {

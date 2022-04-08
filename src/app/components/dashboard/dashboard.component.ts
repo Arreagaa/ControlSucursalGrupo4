@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
   getSucursales(){
     this._sucursalesService.obtenerSucursales(this.token).subscribe(
       (response) => {
-        this.sucursalModelGet = response.empleados;
+        this.sucursalModelGet = response.sucursales;
         console.log(response);
         console.log(this.sucursalModelGet);
       },
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
   getSucursalId(idSucursal){
     this._sucursalesService.obtenerSucursalId(idSucursal, this._usuarioService.obtenerToken()).subscribe(
       (response) => {
-        this.sucursalModelId = response.usuarios;
+        this.sucursalModelId = response.sucursales;
         console.log(response);
         console.log(this.sucursalModelId);
       },
