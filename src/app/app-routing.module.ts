@@ -7,8 +7,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SucursalesComponent } from './components/sucursales/sucursales.component';
 import {EmpresaComponent} from './components/empresa/empresa.component';
 import { ProductosEComponent } from './components/productos-e/productos-e.component';
+import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 
-//aqui se importan los componentes -
+//aqui se importan los componentes
 const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Inicio', component: InicioComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path: 'Dashboard', component: DashboardComponent},
   {path: 'Sucursales', component: SucursalesComponent},
   {path: 'Empresa', component: EmpresaComponent},
-  {path:'productoE', component:ProductosEComponent}
+  {path:'productoE', component:ProductosEComponent},
+  {path:'verEmpresa/:idEmpresa', component:VerEmpresaComponent}
 
 ];
 
