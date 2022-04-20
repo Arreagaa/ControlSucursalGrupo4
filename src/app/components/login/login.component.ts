@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -77,6 +79,13 @@ export class LoginComponent implements OnInit {
       },
       (error)=>{
         console.log(<any>error);
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: '¡Revisa que la información este correcta!',
+          showConfirmButton: false,
+          timer: 15000
+        })
       }
     )
   }

@@ -4,6 +4,8 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 import { Empresa } from 'src/app/models/empresas.model';
 import { EmpresasService } from 'src/app/services/empresas.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-empresas',
   templateUrl: './empresa.component.html',
@@ -63,7 +65,12 @@ export class EmpresaComponent implements OnInit {
       },
       (error)=>{
         console.log(<any>error);
-
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
+        })
       }
     )
   }
@@ -89,7 +96,12 @@ export class EmpresaComponent implements OnInit {
       },
       (error)=>{
         console.log(<any>error);
-
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
+        })
       }
     )
   }
