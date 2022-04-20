@@ -12,13 +12,14 @@
 
    <div class="container px-4 px-lg-5">
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-5"><img class="img-fluid rounded mb-3 mb-lg-0" src="https://logos-marcas.com/wp-content/uploads/2021/10/Taco-Bell-Logo.png"/></div>
+        <div class="col-lg-5"><img class="img-fluid rounded mb-3 mb-lg-0" src="https://es.malwarebytes.com/images/pillar-page/state-of-malware.svg"/></div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">Sucursales Taco Bell</h1>
+            <h1 class="font-weight-light">Sucursales De La Empresa</h1>
             <br>
-            <p>Taco Bell es una cadena de restaurantes de comida rápida, especializada en cocina Tex-Mex. Taco Bell
-              es una cadena estadounidense de restaurantes de comida rápida que se originó en Irvine,
-              California en 1962, por el fundador Glen Bell. Taco Bell es una subsidiaria de Yum! Brands, Inc</p>
+            <p>Una sucursal es una empresa de comercio o industrial que depende de una casa matriz y puede estar ubicada dentro del mismo país o fuera de él.
+              La sucursal es una dependencia separada de la central de la Empresa, no importando la distancia a que se encuentre de la misma, por exigua que sea, y aun si está en la misma población.
+              Maneja tus Sucursales con nosotros de la mejor manera.
+            </p>
           </div>
             </div>
 
@@ -133,25 +134,14 @@
           <h3></h3>
         </div>
 
-        <div class="mq-panel-body">
+        <div class="mq-panel-body" >
 
-            <div class="mq-friends thumbnail">
+            <div class="mq-friends thumbnail" *ngFor="let sur of sucursalModelGet">
               <div class="mq-friend-img text-center">
-                  <p >Taco Bell Sucursal Paseo de la Sexta<span style="padding-left:400px;"></span>
+                  <p >{{ sur.nombreSucursal }}<span style="padding-left:400px;"></span>
               </div>
             </div>
 
-            <div class="mq-friends thumbnail">
-              <div class="mq-friend-img text-center">
-                <p>Taco Bell Sucursal Gran Centro Comercial<span style="padding-left:400px;"></span>
-              </div>
-            </div>
-
-            <div class="mq-friends thumbnail">
-              <div class="mq-friend-img text-center">
-                <p>Taco Bell Sucursal Centro Comercial Portales<span style="padding-left:400px;"></span>
-              </div>
-            </div>
           </div>
           </div>
         </div>
