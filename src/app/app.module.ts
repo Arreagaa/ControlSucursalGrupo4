@@ -13,9 +13,9 @@ import { SucursalesComponent } from './components/sucursales/sucursales.componen
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule } from '@angular/forms';
 import { EmpresaComponent } from './components/empresa/empresa.component';
-
 import { ProductosEComponent } from './components/productos-e/productos-e.component';
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
+import { ProductosSComponent } from './components/productos-s/productos-s.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,8 @@ import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.compon
     SucursalesComponent,
     EmpresaComponent,
     ProductosEComponent,
-    VerEmpresaComponent
+    VerEmpresaComponent,
+    ProductosSComponent
   ],
   imports: [
     BrowserModule,
