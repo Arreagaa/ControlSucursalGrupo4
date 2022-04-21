@@ -2,6 +2,11 @@
 <html lang="es">
     <body>
         <div class="container px-4 px-lg-5">
+          <br>
+          <br>
+          <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarProductosEmpresa"><i class="bi bi-file-earmark-plus"></i>
+            Agregar Producto a la Empresa
+        </button>
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://cdn.informa.es/sites/5c1a2fd74c7cb3612da076ea/pages/5c5026610fa1c000c25b5631/files/analisis-pagos-3.svg?1645775484"/></div>
                 <div class="col-lg-5">
@@ -35,7 +40,6 @@
         </div>
 
         <div class="container">
-
           <div class="text-center">
 
             <div class="col-sm">
@@ -43,60 +47,114 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Nombre Producto</th>
-                    <th scope="col">stock</th>
                     <th scope="col">Nombre Proveedor</th>
+                    <th scope="col">Disponibilidad</th>
                     <th scope="col">Enviar a Sucursal</th>
-                    <th scope="col">Editar-Eliminar</th>
+                    <th scope="col">Otras Funciones</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                  <tr *ngFor="let prodE of productosEmpresaModelGet">
+                    <td>{{ prodE.nombreProducto }}</td>
+                    <td>{{ prodE.nombreProveedor }}</td>
+                    <td>{{ prodE.stock }}</td>
                     <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-                    <td><button class="btn btn-primary">Editar</button>&nbsp;
-                      <button class="btn btn-primary">Eliminar</button></td>
-                  </tr>
-                  <tr>
-
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-                    <td><button class="btn btn-primary">Editar</button>&nbsp;
-                      <button class="btn btn-primary">Eliminar</button></td>
-                  </tr>
-                  <tr>
-
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-                    <td><button class="btn btn-primary">Editar</button>&nbsp;
-                      <button class="btn btn-primary" >Eliminar</button></td>
-                  </tr>
-                  <tr>
-
-                    <td>Xavier</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
-                    <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-                    <td><button class="btn btn-primary">Editar</button>&nbsp;
-                      <button class="btn btn-primary">Eliminar</button></td>
+                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;
+                      <button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button></td>
                   </tr>
                 </tbody>
               </table>
-
-
             </div>
-
           </div>
         </div>
 
-</body>
+        <!--Modal Agregar Sucursal-->
+    <div class="modal fade" id="modalAgregarProductosEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #6793F4">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Agregar Producto a la Empresa</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
 
+              <div class="mb-3">
+                <label for="inputNombreProductoEmpresa" class="form-label">Nombre del Producto</label>
+                <input placeholder="Producto de la Empresa" type="text" class="form-control" name="nombreProductoEmpresa" #nombreProductoEmpresa="ngModel"
+                [(ngModel)]="productosEmpresaModelPost.nombreProducto" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputNombreProveedor" class="form-label">Nombre del Proveedor</label>
+                <input placeholder="Proveedor de la Empresa" type="text" class="form-control" name="nombreProveedor" #nombreProveedor="ngModel"
+                [(ngModel)]="productosEmpresaModelPost.nombreProveedor" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputStock" class="form-label">Cantidad en Existencia</label>
+                <input placeholder="Disponibilidad del Producto" type="text" class="form-control" name="stock" #stock="ngModel"
+                [(ngModel)]="productosEmpresaModelPost.stock" required>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="postProductosEmpresa()" data-bs-dismiss="modal">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Modal Editar Sucursal-->
+    <div class="modal fade" id="modalEditarProductosEmpresa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #6793F4">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Editar Datos de los Productos</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="mb-3">
+                <label for="inputNombreProductoEmpresa" class="form-label">Nombre del Producto</label>
+                <input placeholder="Producto de la Empresa" type="text" class="form-control" name="nombreProductoEmpresa" #nombreProductoEmpresa="ngModel"
+                [(ngModel)]="productosEmpresaModelId.nombreProducto" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputNombreProveedor" class="form-label">Nombre del Proveedor</label>
+                <input placeholder="Proveedor de la Empresa" type="text" class="form-control" name="nombreProveedor" #nombreProveedor="ngModel"
+                [(ngModel)]="productosEmpresaModelId.nombreProveedor" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputStock" class="form-label">Cantidad en Existencia</label>
+                <input placeholder="Disponibilidad del Producto" type="text" class="form-control" name="stock" #stock="ngModel"
+                [(ngModel)]="productosEmpresaModelId.stock" required>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" (click)="putProductosEmpresa()" data-bs-dismiss="modal">Editar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+        </div>
+      </div>
+    </div>
+
+</body>
 </html>
 
