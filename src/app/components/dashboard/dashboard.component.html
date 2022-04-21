@@ -45,14 +45,13 @@
               </div>
               <div class="col-md-8">
                 <div class="card-body">
-                  <h4 class="card-title" style="text-align: center;">{{ sur.nombreSucursal }}</h4>
+                  <h4 class="card-title" style="text-align: center;" routerLink="/productoS">{{ sur.nombreSucursal }}</h4>
                   <br>
                   <p class="card-text" style="text-align: center;">Dicha sucursal, busca satisfaser a sus clientes de la mejor manera, se encuentra ubicada en {{ sur.direccionSucursal }},
                     Guatemala, hasta el dia de hoy.</p>
                   <br>
                   <a type="button" class="card-link" style="justify-items: center;" data-bs-toggle="modal" data-bs-target="#modalEditarSucursal" (click)="getSucursalId(sur._id)"><i class="bi bi-pencil-square"></i> Modificar</a>
                   <a type="button" class="card-link" (click)="deleteSucursal(sur._id)"><i class="bi bi-file-earmark-minus"></i> Eliminar</a>
-                  <a type="button" class="card-link" routerLink="/productoS"><i class="bi bi-file-earmark-minus"></i>Productos</a>
                 </div>
               </div>
             </div>

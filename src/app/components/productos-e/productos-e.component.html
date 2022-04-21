@@ -60,8 +60,20 @@
                     <td>{{ prodE.nombreProveedor }}</td>
                     <td>{{ prodE.stock }}</td>
                     <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-                    <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;
-                      <button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button></td>
+
+                    <!--<td><span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;
+                    </span>
+                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
+                      <button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button>
+                    </span>
+                    </td>-->
+
+                   <td>
+                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;
+                      <button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button>
+                    </td>
+
                   </tr>
                 </tbody>
               </table>
