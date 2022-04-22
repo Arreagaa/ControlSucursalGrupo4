@@ -75,12 +75,18 @@
                 <label for="inputNombreSucursal" class="form-label">Nombre de la Sucursal</label>
                 <input placeholder="Sucursal Centro Comercial Portales" type="text" class="form-control" id="inputNombreSucursal" name="nombreSucursal" #nombreSucursal="ngModel"
                 [(ngModel)]="sucursalModelPost.nombreSucursal" required>
+                  <div [hidden]="nombreSucursal.valid || nombreSucursal.pristine"
+                    class="alert alert-danger">Coloca el Nombre de la Sucursal para continuar.
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="inputDireccion" class="form-label">Direccion de la Sucursal</label>
                 <input placeholder="Portales zona 18" type="text" class="form-control" id="inputDireccion" name="direccion" #direccion="ngModel"
                 [(ngModel)]="sucursalModelPost.direccionSucursal" required>
+                  <div [hidden]="direccion.valid || direccion.pristine"
+                    class="alert alert-danger">Coloca la dirección de la Sucursal para continuar.
+                  </div>
               </div>
 
             </form>

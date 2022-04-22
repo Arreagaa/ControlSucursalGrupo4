@@ -96,12 +96,6 @@ export class DashboardComponent implements OnInit {
       },
       (error)=>{
         console.log(<any>error);
-        Swal.fire({
-          icon: 'warning',
-          title: 'Algo no anda bien...',
-          text: '¡Revisa que la información este correcta!',
-          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
-        })
       }
     )
   }

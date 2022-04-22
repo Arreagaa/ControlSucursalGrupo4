@@ -94,27 +94,39 @@
 
               <div class="mb-3">
                 <label for="inputNombre" class="form-label">Nombre de la Empresa</label>
-                <input placeholder="Taco Bell" type="text" class="form-control" name="nombre" #nombre="ngModel"
-                [(ngModel)]="empresaModelPost.nombre" ng-required="true">
+                <input placeholder="Taco Bell" type="text" class="form-control" name="nombre" #nombre="ngModel" required
+                [(ngModel)]="empresaModelPost.nombre">
+                  <div [hidden]="nombre.valid || nombre.pristine"
+                    class="alert alert-danger">Se requiere colocar el Nombre para continuar.
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="inputEmail" class="form-label">Correo de Contacto</label>
                 <input  placeholder="Taco@gmail.com" type="email" class="form-control" name="email" #email="ngModel"
-                [(ngModel)]="empresaModelPost.email" ng-required="true">
+                [(ngModel)]="empresaModelPost.email" required>
+                  <div [hidden]="email.valid || email.pristine"
+                    class="alert alert-danger">Coloca un Correo de Contacto para continuar.
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="inputPassword" class="form-label">Clave de Acceso</label>
                 <input type="password" class="form-control" placeholder="Tu clave de Acceso" name="password" #password="ngModel"
-                [(ngModel)]="empresaModelPost.password" ng-required="true">
+                [(ngModel)]="empresaModelPost.password" required>
+                  <div [hidden]="password.valid || password.pristine"
+                    class="alert alert-danger">Coloca una Clave de Acceso para continuar.
+                  </div>
               </div>
 
               <div>
                 <div class="mb-3">
                   <label for="inputTipo" class="form-label">Tipo de Empresa</label>
                 <input type="select" class="form-control" placeholder="Restaurante" name="tipo" #tipo="ngModel"
-                [(ngModel)]="empresaModelPost.tipo" ng-required="true">
+                [(ngModel)]="empresaModelPost.tipo" required>
+                <div [hidden]="tipo.valid || tipo.pristine"
+                    class="alert alert-danger">Específica que tipo de Empresa es, para continuar.
+                  </div>
               </div>
               </div>
 

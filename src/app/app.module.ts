@@ -16,6 +16,7 @@ import { EmpresaComponent } from './components/empresa/empresa.component';
 import { ProductosEComponent } from './components/productos-e/productos-e.component';
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 import { ProductosSComponent } from './components/productos-s/productos-s.component';
+import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductosSComponent } from './components/productos-s/productos-s.compon
     EmpresaComponent,
     ProductosEComponent,
     VerEmpresaComponent,
-    ProductosSComponent
+    ProductosSComponent,
+    DashboardInicioComponent
   ],
   imports: [
     BrowserModule,

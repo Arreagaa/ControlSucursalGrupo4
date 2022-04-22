@@ -80,11 +80,10 @@ export class LoginComponent implements OnInit {
       (error)=>{
         console.log(<any>error);
         Swal.fire({
-          position: 'top-end',
           icon: 'error',
-          title: '¡Revisa que la información este correcta!',
-          showConfirmButton: false,
-          timer: 15000
+          title: 'Oops...',
+          text: '¡Revisa que la información este correcta!',
+          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
         })
       }
     )

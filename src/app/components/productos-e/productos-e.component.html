@@ -96,18 +96,27 @@
                 <label for="inputNombreProductoEmpresa" class="form-label">Nombre del Producto</label>
                 <input placeholder="Producto de la Empresa" type="text" class="form-control" name="nombreProductoEmpresa" #nombreProductoEmpresa="ngModel"
                 [(ngModel)]="productosEmpresaModelPost.nombreProducto" required>
+                  <div [hidden]="nombreProductoEmpresa.valid || nombreProductoEmpresa.pristine"
+                    class="alert alert-danger">Coloca el Nombre del Producto para continuar.
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="inputNombreProveedor" class="form-label">Nombre del Proveedor</label>
                 <input placeholder="Proveedor de la Empresa" type="text" class="form-control" name="nombreProveedor" #nombreProveedor="ngModel"
                 [(ngModel)]="productosEmpresaModelPost.nombreProveedor" required>
+                  <div [hidden]="nombreProveedor.valid || nombreProveedor.pristine"
+                    class="alert alert-danger">Coloca el Nombre del Proveedor para continuar.
+                  </div>
               </div>
 
               <div class="mb-3">
                 <label for="inputStock" class="form-label">Cantidad en Existencia</label>
                 <input placeholder="Disponibilidad del Producto" type="text" class="form-control" name="stock" #stock="ngModel"
                 [(ngModel)]="productosEmpresaModelPost.stock" required>
+                  <div [hidden]="stock.valid || stock.pristine"
+                    class="alert alert-danger">Debes de color la Cantidad en Existencia del Producto.
+                  </div>
               </div>
 
             </form>
