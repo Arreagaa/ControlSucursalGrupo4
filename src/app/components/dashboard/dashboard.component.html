@@ -3,7 +3,7 @@
     <div class="container">
       <br>
 
-      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursal"><i class="bi bi-file-earmark-plus"></i>
+      <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarSucursal" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'"><i class="bi bi-file-earmark-plus"></i>
           Agregar Sucursal
       </button>
 
@@ -23,11 +23,17 @@
           </div>
             </div>
 
-      <div class="card text-white bg my-5 py-4 text-center">
+      <div class="card text-white bg my-5 py-4 text-center" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'">
         <div class="card-body"><p class="text-white m-0">Como Empresa, lleva tu el control de tus sucursales y sus ubicaciones concretas, verifica, agregar y más.</p></div>
     </div>
+
+    <div class="card text-white bg my-5 py-4 text-center" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINISTRADOR'">
+      <div class="card-body"><p class="text-white m-0">Debido a las políticas de privacidad de la empresa, y sus sucursales, no posees los permisos para ver la información.</p></div>
+  </div>
+
     <p>
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-info-circle"></i>
+      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
+      *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'"><i class="bi bi-info-circle"></i>
           Información Importante
       </a>
     </p>
@@ -59,6 +65,8 @@
         </div>
       </div>
     </div>
+
+    <!--LO QUE VE EL ADMINNISTRADOR-->
 
     <!--Modal Agregar Sucursal-->
     <div class="modal fade" id="modalAgregarSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -134,7 +142,7 @@
     </div>
 
     <!--PANELES-->
-    <div>
+    <div *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'">
       <div class="mq-panel-wrapper my-1 py-4 text-center">
         <div class="mq-panel-header  my-1 py-4 text-center">
           <h3></h3>
@@ -153,7 +161,7 @@
         </div>
 
           <div class="mb-3 text-center">
-            <a class="btn btn-primary" routerLink="/productoE"><i class="bi bi-check"></i> Verifica los Productos de la Empresa</a>
+            <a class="btn btn-primary" routerLink="/productoE"  *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'"><i class="bi bi-check"></i> Verifica los Productos de la Empresa</a>
         </div>
         <div class="container px-4 px-lg-5">
           <div class="row gx-4 gx-lg-5 align-items-center my-5">

@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
   public sucursalModelPost: Sucursales;
   public sucursalModelId: Sucursales;
 
-  constructor(private _sucursalesService: SucursalesService, private _usuarioService: UsuarioService) {
+  constructor(private _sucursalesService: SucursalesService, public _usuarioService: UsuarioService) {
     this.sucursalModelPost = new Sucursales('','', '','');
     this.sucursalModelId = new Sucursales('','','','');
     this.token = this._usuarioService.obtenerToken();
