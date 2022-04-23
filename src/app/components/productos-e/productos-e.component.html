@@ -7,6 +7,9 @@
           <button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#modalAgregarProductosEmpresa"><i class="bi bi-file-earmark-plus"></i>
             Agregar Producto a la Empresa
         </button>
+
+        <button class="btn btn-back" id="botonBack" routerLink="/Dashboard"><i class="bi bi-arrow-left"></i> Regresar a Control de Sucursales</button>
+
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://cdn.informa.es/sites/5c1a2fd74c7cb3612da076ea/pages/5c5026610fa1c000c25b5631/files/analisis-pagos-3.svg?1645775484"/></div>
                 <div class="col-lg-5">
@@ -59,15 +62,7 @@
                     <td>{{ prodE.nombreProducto }}</td>
                     <td>{{ prodE.nombreProveedor }}</td>
                     <td>{{ prodE.stock }}</td>
-                    <td><button class="btn btn-primary">Enviar a sucursal</button></td>
-
-                    <!--<td><span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="popover">
-                      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;
-                    </span>
-                    <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="popover">
-                      <button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button>
-                    </span>
-                    </td>-->
+                    <td><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProductosEmpresa">Enviar a sucursal</button></td>
 
                    <td>
                     <span data-tooltip="Botón para Editar los Productos de la Empresa"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;</span>
@@ -167,6 +162,62 @@
         </div>
       </div>
     </div>
+
+    <!-- Envio de Productos -->
+    <div class="offcanvas offcanvas-start" id="offcanvasProductosEmpresa"  data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header" style="background-color: #6793F4">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel" style="color: white">Envía Productos a las Sucursales</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <br>
+        <figure class="d-inline-flex flex-column align-items-center m-0">
+          <img class="rounded-circle" src="https://p4.wallpaperbetter.com/wallpaper/202/251/688/building-architecture-vertical-wallpaper-preview.jpg" width="90">
+          <figcaption class="mt-2">Control de Productos</figcaption>
+        </figure>
+      <br>
+
+      <div class="offcanvas-body">
+        <form>
+
+          <div class="mb-3">
+            <label for="inputNombreProductoSucursal" class="form-label">Nombre del Producto a Mandar</label>
+            <input placeholder="Producto que se enviará" type="text" class="form-control" name="nombreProductoSucursal" #nombreProductoSucursal="ngModel"
+            [(ngModel)]="productosEmpresaModelPost.nombreProveedor" required>
+              <div [hidden]="nombreProductoSucursal.valid || nombreProductoSucursal.pristine"
+                class="alert alert-danger">Coloca el Nombre del Producto a Mandar para continuar.
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputNombreSucursal" class="form-label">Nombre de la Sucursal</label>
+            <input placeholder="Donde se enviará el Producto" type="text" class="form-control" name="nombreSucursal" #nombreSucursal="ngModel"
+            [(ngModel)]="productosEmpresaModelPost.nombreProducto" required>
+              <div [hidden]="nombreSucursal.valid || nombreSucursal.pristine"
+                class="alert alert-danger">Coloca el Nombre de la Sucursal para continuar.
+              </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="inputStock" class="form-label">Cantidad de Productos a Enviar</label>
+            <input placeholder="La Disponibilidad del Producto bajará"  type="text" class="form-control" name="stock" #stock="ngModel"
+            [(ngModel)]="productosEmpresaModelPost.stock" required>
+              <div [hidden]="stock.valid || stock.pristine"
+                class="alert alert-danger">Coloca la Cantidad a Mandar para continuar.
+              </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="putProductosEmpresa()" data-bs-dismiss="modal">Enviar</button>
+      </div>
+    </div>
+    <br>
+    <br>
+    <div class="mb-3 text-center">
+      <a class="btn btn-primary" routerLink="/productoS"><i class="bi bi-check"></i> Verifica los Productos de la Sucursal</a>
+  </div>
 
     <div class="container px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 align-items-center my-5">

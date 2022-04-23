@@ -27,10 +27,6 @@
         <div class="card-body"><p class="text-white m-0">Como Empresa, lleva tu el control de tus sucursales y sus ubicaciones concretas, verifica, agregar y más.</p></div>
     </div>
 
-    <div class="card text-white bg my-5 py-4 text-center" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINISTRADOR'">
-      <div class="card-body"><p class="text-white m-0">Debido a las políticas de privacidad de la empresa, y sus sucursales, no posees los permisos para ver la información.</p></div>
-  </div>
-
     <p>
       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"
       *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'"><i class="bi bi-info-circle"></i>
@@ -65,8 +61,6 @@
         </div>
       </div>
     </div>
-
-    <!--LO QUE VE EL ADMINNISTRADOR-->
 
     <!--Modal Agregar Sucursal-->
     <div class="modal fade" id="modalAgregarSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -169,5 +163,49 @@
               <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
             </div>
       </div>
+    </div>
+
+    <!--LO QUE VE EL ADMINNISTRADOR-->
+      <div class="mb-3 text-center">
+        <a class="btn btn-primary" routerLink="/Empresa"  *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINISTRADOR'"><i class="bi bi-check"></i>Regresar al Control de Empresas</a>
+    </div>
+      <div class="container px-4 px-lg-5" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINISTRADOR'" >
+        <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="card text-white bg my-5 py-4 text-center">
+            <div class="card-body"><p class="text-white m-0">Debido a las políticas de privacidad de la Empresa, no puedes acceder a la información que solicitas sin los permisos necesarios.</p></div>
+        </div>
+        <div class="row gx-4 gx-lg-5">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Incentivo</h3>
+                        <p class="card-text" style="text-align:justify;">La administración de una o varias sucursales puede llegar a presentar un grado de dificultad, desde mantener el orden, hasta llevar
+                          correctamente el control de los costos de operación.</p>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Objetivo</h3>
+                        <p class="card-text" style="text-align:justify;">
+                          Cualquier persona que posea este problema en particular en su negocio, o una gran empresa, puede llevar sus operaciones administrativas de forma eficiente y rentable, con nosotros.
+                        </p>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">Acerca de</h3>
+                        <p class="card-text" style="text-align:justify;">Somos un grupo de estudiantes, del Centro Educativo Técnico Laboral Kinal, que ven una problemática al momento de administrar sucursales, desde la perspectiva
+                          de un ente empresarial, buscamos solucionar este problema por medio de esta herramienta web.</p>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+        </div>
     </div>
 
