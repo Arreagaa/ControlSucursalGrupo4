@@ -15,6 +15,7 @@ import Swal from 'sweetalert2'
 export class DashboardComponent implements OnInit {
 
   public token;
+  public idEmpresa;
 
   //SUCURSALES
   public sucursalModelGet: Sucursales;
@@ -32,11 +33,12 @@ export class DashboardComponent implements OnInit {
   }
 
   getSucursales(){
-    this._sucursalesService.obtenerSucursales(this.token).subscribe(
+    this._sucursalesService.obtenerSucursales(this.idEmpresa, this.token).subscribe(
       (response) => {
         this.sucursalModelGet = response.sucursales;
-        console.log(response);
+        console.log(response.sucursales);
         console.log(this.sucursalModelGet);
+
       },
       (error)=>{
         console.log(<any>error)

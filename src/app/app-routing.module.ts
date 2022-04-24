@@ -16,6 +16,7 @@ const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Inicio', component: InicioComponent},
   {path: 'Registro', component: RegistroComponent},
+  {path: 'Dashboard/:idEmpresa', component: DashboardComponent},
   {path: 'Dashboard', component: DashboardComponent},
   {path: 'Sucursales', component: SucursalesComponent},
   {path: 'Empresa', component: EmpresaComponent},

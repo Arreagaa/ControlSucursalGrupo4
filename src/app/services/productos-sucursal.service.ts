@@ -12,9 +12,9 @@ export class ProductosSucursalService {
 
   constructor(public _http: HttpClient) { }
 
-  obtenerProductosSucursal(token): Observable<any> {
+  obtenerProductosSucursal(idSucursal, token): Observable<any> {
     let headersToken = this.headersVariable.set('Authorization', token)
 
-    return this._http.get(this.url + '/buscarProductoSucursal/', { headers: headersToken })
+    return this._http.get(this.url + '/buscarProductoSucursal/' + idSucursal, { headers: headersToken })
   }
 }

@@ -33,48 +33,17 @@
                   <tr>
                     <th scope="col">Nombre Producto</th>
                     <th scope="col">stock</th>
-                    <th scope="col">Cantidad Vendida</th>
+                    <!--<th scope="col">Cantidad Vendida</th>-->
                     <th scope="col">Vender Producto</th>
-
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-
-                    <td>tomate</td>
-                    <td>20</td>
-                    <td>2</td>
+                  <tr *ngFor="let prodS of productoSucursalModelGet">
+                    <td>{{ prodS.nombreProductoSucursal }}</td>
+                    <td>{{ prodS.stockSucursal }}</td>
+                    <!--<td>{{ prodS.nombreSucursal }}</td>-->
                     <td><button class="btn btn-primary">Vender Producto</button></td>
-
-
-                  </tr>
-                  <tr>
-
-                    <td>pasta</td>
-                    <td>10</td>
-                    <td>1</td>
-                    <td><button class="btn btn-primary">Vender Producto</button></td>
-
-
-                  </tr>
-                  <tr>
-
-                    <td>carne</td>
-                    <td>100</td>
-                    <td>20</td>
-                    <td><button class="btn btn-primary">Vender Producto</button></td>
-
-
-                  </tr>
-                  <tr>
-
-                    <td>gerardo</td>
-                    <td>60</td>
-                    <td>2</td>
-                    <td><button class="btn btn-primary">Vender Producto</button></td>
-
-
                   </tr>
                 </tbody>
               </table>
