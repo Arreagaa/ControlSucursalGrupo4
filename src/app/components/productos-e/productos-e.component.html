@@ -182,7 +182,7 @@
           <div class="mb-3">
             <label for="inputNombreProductoSucursal" class="form-label">Nombre del Producto a Mandar</label>
             <input placeholder="Producto que se enviará" type="text" class="form-control" name="nombreProductoSucursal" #nombreProductoSucursal="ngModel"
-            [(ngModel)]="productosEmpresaModelPost.nombreProveedor" required>
+            [(ngModel)]="productosSucursalModelPost.nombreProductoSucursal" required>
               <div [hidden]="nombreProductoSucursal.valid || nombreProductoSucursal.pristine"
                 class="alert alert-danger">Coloca el Nombre del Producto a Mandar para continuar.
               </div>
@@ -191,7 +191,7 @@
           <div class="mb-3">
             <label for="inputNombreSucursal" class="form-label">Nombre de la Sucursal</label>
             <input placeholder="Donde se enviará el Producto" type="text" class="form-control" name="nombreSucursal" #nombreSucursal="ngModel"
-            [(ngModel)]="productosEmpresaModelPost.nombreProducto" required>
+            [(ngModel)]="productosSucursalModelPost.nombreSucursal" required>
               <div [hidden]="nombreSucursal.valid || nombreSucursal.pristine"
                 class="alert alert-danger">Coloca el Nombre de la Sucursal para continuar.
               </div>
@@ -200,7 +200,7 @@
           <div class="mb-3">
             <label for="inputStock" class="form-label">Cantidad de Productos a Enviar</label>
             <input placeholder="La Disponibilidad del Producto bajará"  type="text" class="form-control" name="stock" #stock="ngModel"
-            [(ngModel)]="productosEmpresaModelPost.stock" required>
+            [(ngModel)]="productosSucursalModelPost.stockSucursal" required>
               <div [hidden]="stock.valid || stock.pristine"
                 class="alert alert-danger">Coloca la Cantidad a Mandar para continuar.
               </div>
@@ -210,7 +210,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="putProductosEmpresa()" data-bs-dismiss="modal">Enviar</button>
+        <button type="button" class="btn btn-primary" (click)="sendProductosEmpresa()" data-bs-dismiss="modal">Enviar</button>
       </div>
     </div>
     <br>

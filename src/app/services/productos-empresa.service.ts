@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ProductosEmpresa } from '../models/productosEmpresa.model';
+import { ProductosSucursal } from '../models/productosSucursal.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +43,12 @@ export class ProductosEmpresaService {
     let headersToken = this.headersVariable.set('Authorization', token);
 
     return this._http.put(this.url + '/editarProducto/' + modeloProductosEmpresa._id, parametros, { headers: headersToken })
+  }
+
+  enviarProductosSucursal(modeloProductosSucursal: ProductosSucursal, token): Observable<any> {
+    let parametros = JSON.stringify(modeloProductosSucursal);
+    let headersToken = this.headersVariable.set('Authorization', token);
+
+    return this._http.post(this.url + '/enviarProducto', parametros, {headers: headersToken})
   }
 }

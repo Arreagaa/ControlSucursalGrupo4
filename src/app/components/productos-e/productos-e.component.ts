@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ProductosEmpresaService } from 'src/app/services/productos-empresa.service';
 import { ProductosEmpresa } from 'src/app/models/productosEmpresa.model';
+import { ProductosSucursal } from 'src/app/models/productosSucursal.model';
 
 import Swal from 'sweetalert2'
 
@@ -18,11 +19,13 @@ export class ProductosEComponent implements OnInit {
   //PRODUCTOS DE LA EMPRESA
   public productosEmpresaModelGet: ProductosEmpresa;
   public productosEmpresaModelPost: ProductosEmpresa;
+  public productosSucursalModelPost: ProductosSucursal;
   public productosEmpresaModelId: ProductosEmpresa;
 
   constructor(private _productosEmpresaService: ProductosEmpresaService, private _usuarioService: UsuarioService) {
     this.productosEmpresaModelPost = new ProductosEmpresa('','', '',0, '');
     this.productosEmpresaModelId = new ProductosEmpresa('','','',0, '');
+    this.productosSucursalModelPost = new ProductosSucursal('','',0,'',0, '','');
     this.token = this._usuarioService.obtenerToken();
   }
 
@@ -52,6 +55,24 @@ export class ProductosEComponent implements OnInit {
       },
       (error)=>{
         console.log(<any>error)
+      }
+    )
+  }
+
+  sendProductosEmpresa(){
+    this._productosEmpresaService.enviarProductosSucursal(this.productosSucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        //this.getProductosEmpresa();
+      },
+      (error)=>{
+        console.log(<any>error);
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
+        })
       }
     )
   }
