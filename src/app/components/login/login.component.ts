@@ -73,6 +73,10 @@ export class LoginComponent implements OnInit {
           }else{
             this._router.navigate(['/Empresa'])
           }
+
+          if(response.usuario.rol == 'ROL_USUARIO'){
+            this._router.navigate(['/DashboardInicio'])
+          }
           //this._router.navigate(['/Empresa']);
         });
 
