@@ -33,16 +33,16 @@
                   <tr>
                     <th scope="col">Nombre Producto</th>
                     <th scope="col">stock</th>
-                    <!--<th scope="col">Cantidad Vendida</th>-->
+                    <th scope="col">Cantidad Vendida</th>
                     <th scope="col">Vender Producto</th>
 
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let prodS of productoSucursalModelGet">
+                  <tr *ngFor="let prodS of productoSucursalModelId">
                     <td>{{ prodS.nombreProductoSucursal }}</td>
                     <td>{{ prodS.stockSucursal }}</td>
-                    <!--<td>{{ prodS.nombreSucursal }}</td>-->
+                    <td>{{ prodS.cantidadVendida }}</td>
                     <td><button class="btn btn-primary">Vender Producto</button></td>
                   </tr>
                 </tbody>

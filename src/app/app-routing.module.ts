@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'Empresa', component: EmpresaComponent},
   {path:'productoE', component:ProductosEComponent},
   {path:'verEmpresa/:idEmpresa', component:VerEmpresaComponent},
-  {path:'productoS',component: ProductosSComponent},
+  {path:'productoS/:idSucursal',component: ProductosSComponent},
   {path: 'DashboardInicio', component: DashboardInicioComponent},
 
 ];
