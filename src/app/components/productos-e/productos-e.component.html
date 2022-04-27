@@ -52,8 +52,8 @@
                     <th scope="col">Nombre Producto</th>
                     <th scope="col">Nombre Proveedor</th>
                     <th scope="col">Disponibilidad</th>
-                    <th scope="col">Enviar a Sucursal</th>
-                    <th scope="col">Otras Funciones</th>
+                    <th scope="col">Cambios en Productos</th>
+                    <th scope="col">Descartar Productos</th>
 
                   </tr>
                 </thead>
@@ -62,13 +62,12 @@
                     <td>{{ prodE.nombreProducto }}</td>
                     <td>{{ prodE.nombreProveedor }}</td>
                     <td>{{ prodE.stock }}</td>
-                    <td><button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProductosEmpresa">Enviar a sucursal</button></td>
-
-                   <td>
-                    <span data-tooltip="Botón para Editar los Productos de la Empresa"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i></button>&nbsp;</span>
-                    <span data-tooltip="Botón para Eliminar los Productos de la Empresa"><button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i></button></span>
+                    <td>
+                      <span data-tooltip="Botón para Editar los Productos de la Empresa"><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalEditarProductosEmpresa" (click)="getProductosEmpresaId(prodE._id)"><i class="bi bi-pencil-square"></i> Modificar</button>&nbsp;</span>
                     </td>
-
+                    <td>
+                      <span data-tooltip="Botón para Eliminar los Productos de la Empresa"><button class="btn btn-primary" (click)="deleteProductosEmpresa(prodE._id)"><i class="bi bi-file-earmark-minus"></i> Descartar</button></span>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -107,7 +106,7 @@
 
               <div class="mb-3">
                 <label for="inputStock" class="form-label">Cantidad en Existencia</label>
-                <input placeholder="Disponibilidad del Producto" type="text" class="form-control" name="stock" #stock="ngModel"
+                <input placeholder="Disponibilidad del Producto" type="number" class="form-control" name="stock" #stock="ngModel"
                 [(ngModel)]="productosEmpresaModelPost.stock" required>
                   <div [hidden]="stock.valid || stock.pristine"
                     class="alert alert-danger">Debes de color la Cantidad en Existencia del Producto.
@@ -149,7 +148,7 @@
 
               <div class="mb-3">
                 <label for="inputStock" class="form-label">Cantidad en Existencia</label>
-                <input placeholder="Disponibilidad del Producto" type="text" class="form-control" name="stock" #stock="ngModel"
+                <input placeholder="Disponibilidad del Producto" type="number" class="form-control" name="stock" #stock="ngModel"
                 [(ngModel)]="productosEmpresaModelId.stock" required>
               </div>
 
@@ -172,7 +171,7 @@
       <br>
         <figure class="d-inline-flex flex-column align-items-center m-0">
           <img class="rounded-circle" src="https://p4.wallpaperbetter.com/wallpaper/202/251/688/building-architecture-vertical-wallpaper-preview.jpg" width="90">
-          <figcaption class="mt-2">Control de Productos</figcaption>
+
         </figure>
       <br>
 
@@ -199,7 +198,7 @@
 
           <div class="mb-3">
             <label for="inputStock" class="form-label">Cantidad de Productos a Enviar</label>
-            <input placeholder="La Disponibilidad del Producto bajará"  type="text" class="form-control" name="stock" #stock="ngModel"
+            <input placeholder="La Disponibilidad del Producto bajará"  type="number" class="form-control" name="stock" #stock="ngModel"
             [(ngModel)]="productosSucursalModelPost.stockSucursal" required>
               <div [hidden]="stock.valid || stock.pristine"
                 class="alert alert-danger">Coloca la Cantidad a Mandar para continuar.
@@ -209,11 +208,16 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="sendProductosEmpresa()" data-bs-dismiss="modal">Enviar</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Close</button>
+        <button type="button" class="btn btn-primary" (click)="sendProductosEmpresa()" data-bs-dismiss="offcanvas">Enviar</button>
       </div>
     </div>
+
     <br>
+    <br>
+    <div class="mb-3 text-center">
+      <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasProductosEmpresa"><i class="bi bi-check"></i> Enviar Productos a Sucursal</button>
+    </div>
 
     <div class="container px-4 px-lg-5">
       <div class="row gx-4 gx-lg-5 align-items-center my-5">

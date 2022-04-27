@@ -43,7 +43,7 @@
                     <td>{{ prodS.nombreProductoSucursal }}</td>
                     <td>{{ prodS.stockSucursal }}</td>
                     <td>{{ prodS.cantidadVendida }}</td>
-                    <td><button class="btn btn-primary">Vender Producto</button></td>
+                    <td><button class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#modalVenderProductoSucursal"><i class="bi bi-box-arrow-right"></i> Vender Producto</button></td>
                   </tr>
                 </tbody>
               </table>
@@ -52,7 +52,48 @@
             </div>
 
           </div>
+          <br>
+          <br>
+          <div class="mb-3 text-center">
+            <a class="btn btn-primary" ><i class="bi bi-check"></i> Verifica la Venta de Productos</a>
+          </div>
+          <br>
+          <br>
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+          </div>
         </div>
+
+        <!--Modal Agregar Sucursal-->
+    <div class="modal fade" id="modalVenderProductoSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header" style="background-color: #6793F4">
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Agregar Sucursal</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+
+              <div class="mb-3">
+                <label for="inputNombreProductoSucursal" class="form-label">Producto a Vender</label>
+                <input placeholder="Producto a la Venta" type="text" class="form-control" id="inputNombreProductoSucursal" name="nombreProductoSucursal"  required>
+              </div>
+
+              <div class="mb-3">
+                <label for="inputCantidadVendidos" class="form-label">Cantidad a Vender</label>
+                <input placeholder="Cantidad Vendida" type="number" class="form-control" id="inputCantidadVendidos" name="cantidadVendidos" required>
+              </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Vender</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 </body>
 <br>
