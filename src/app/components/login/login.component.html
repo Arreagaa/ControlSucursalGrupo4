@@ -11,8 +11,8 @@
 
           <div class="form-group">
               <label>Ingresa tu Usuario o Correo</label>
-              <input type="text" class="form-control" placeholder="@gmail.com" name="email" required #email="ngModel"
-              [(ngModel)]="usuarioModel.email">
+              <input type="text" class="form-control" placeholder="@gmail.com" name="email" #email="ngModel"
+              [(ngModel)]="usuarioModel.email" required>
                 <div [hidden]="email.valid || email.pristine"
                   class="alert alert-danger">Se requiere el Correo para Iniciar Sesión.
                 </div>
@@ -21,8 +21,8 @@
 
            <div class="form-group">
               <label>Clave de Acceso</label>
-              <input type="password" class="form-control" placeholder="Password" name="password" required #password="ngModel"
-              [(ngModel)]="usuarioModel.password">
+              <input type="password" class="form-control" placeholder="Password" name="password" #password="ngModel"
+              [(ngModel)]="usuarioModel.password" required>
               <div [hidden]="password.valid || password.pristine"
                   class="alert alert-danger">No quites tu Clave de Acceso, la necesitas.
                 </div>
