@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { SucursalesService } from 'src/app/services/sucursales.service';
+import { ActivatedRoute } from '@angular/router';
 //SUCURSALES
 import { Sucursales } from 'src/app/models/sucursales.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
@@ -22,18 +23,24 @@ export class DashboardComponent implements OnInit {
   public sucursalModelPost: Sucursales;
   public sucursalModelId: Sucursales;
 
-  constructor(private _sucursalesService: SucursalesService, public _usuarioService: UsuarioService) {
+  constructor(private _sucursalesService: SucursalesService, public _usuarioService: UsuarioService, public _activatedRoute: ActivatedRoute) {
     this.sucursalModelPost = new Sucursales('','', '','');
     this.sucursalModelId = new Sucursales('','','','');
     this.token = this._usuarioService.obtenerToken();
   }
 
   ngOnInit(): void {
-    this.getSucursales();
+    this._activatedRoute.paramMap.subscribe((dataRuta)=>{
+      console.log(dataRuta.get('idEmpresa'));
+      this.getSucursales(dataRuta.get('idEmpresa'));
+
+      this.idEmpresa = dataRuta.get('idEmpresa')
+    })
+    //this.getSucursales();
   }
 
-  getSucursales(){
-    this._sucursalesService.obtenerSucursales(this.idEmpresa, this.token).subscribe(
+  getSucursales(idEmpresa){
+    this._sucursalesService.obtenerSucursales(idEmpresa, this._usuarioService.obtenerToken()).subscribe(
       (response) => {
         this.sucursalModelGet = response.sucursales;
         console.log(response);
@@ -64,7 +71,7 @@ export class DashboardComponent implements OnInit {
     this._sucursalesService.agregarSucursal(this.sucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-        this.getSucursales();
+        this.getSucursales(this.idEmpresa);
         Swal.fire({
           icon: 'success',
           title: 'Se ha agregado la Sucursal Correctamente',
@@ -88,7 +95,7 @@ export class DashboardComponent implements OnInit {
     this._sucursalesService.eliminarSucursal(idSucursal, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-        this.getSucursales();
+        this.getSucursales(this.idEmpresa);
       },
       (error)=>{
         console.log(<any>error);
@@ -101,7 +108,7 @@ export class DashboardComponent implements OnInit {
     this._sucursalesService.editarEmpresa(this.sucursalModelId, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-        this.getSucursales();
+        this.getSucursales(this.idEmpresa);
         Swal.fire({
           icon: 'warning',
           title: 'Se han realizado cambios en la Sucursal',
