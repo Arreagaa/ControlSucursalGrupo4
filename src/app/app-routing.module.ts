@@ -10,6 +10,7 @@ import { ProductosEComponent } from './components/productos-e/productos-e.compon
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 import { ProductosSComponent } from './components/productos-s/productos-s.component';
 import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
+import { GraficaComponent} from './components/grafica/grafica.component';
 
 //aqui se importan los componentes
 const routes: Routes = [
@@ -24,7 +25,7 @@ const routes: Routes = [
   {path:'verEmpresa/:idEmpresa', component:VerEmpresaComponent},
   {path:'productoS/:idSucursal',component: ProductosSComponent},
   {path: 'DashboardInicio', component: DashboardInicioComponent},
-
+  {path:'grafica', component: GraficaComponent}
 ];
 
 @NgModule({

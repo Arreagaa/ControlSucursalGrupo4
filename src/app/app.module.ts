@@ -17,6 +17,7 @@ import { ProductosEComponent } from './components/productos-e/productos-e.compon
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 import { ProductosSComponent } from './components/productos-s/productos-s.component';
 import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
+import { GraficaComponent } from './components/grafica/grafica.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { DashboardInicioComponent } from './components/dashboard-inicio/dashboar
     ProductosEComponent,
     VerEmpresaComponent,
     ProductosSComponent,
-    DashboardInicioComponent
+    DashboardInicioComponent,
+    GraficaComponent
   ],
   imports: [
     BrowserModule,
