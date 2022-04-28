@@ -62,6 +62,12 @@ export class EmpresaComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getEmpresas();
+        Swal.fire({
+          icon: 'success',
+          title: 'Se ha agregado la Empresa Correctamente',
+          text: '¡Puedes Revisar el cambio!',
+          footer: '<a>Puedes revisar la nueva Empresa.</a>'
+        })
       },
       (error)=>{
         console.log(<any>error);
@@ -93,6 +99,12 @@ export class EmpresaComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getEmpresas();
+        Swal.fire({
+          icon: 'warning',
+          title: 'Se han realizado cambios en la Empresa',
+          text: '¡Puedes Revisar la Empresa Actualizada!',
+          footer: '<a>Función concretada correctamente.</a>'
+        })
       },
       (error)=>{
         console.log(<any>error);
@@ -100,7 +112,7 @@ export class EmpresaComponent implements OnInit {
           icon: 'warning',
           title: 'Algo no anda bien...',
           text: '¡Revisa que la información este correcta!',
-          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
+          footer: 'No dejes campos vacios, ¡gracias!'
         })
       }
     )

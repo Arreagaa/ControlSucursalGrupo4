@@ -64,6 +64,12 @@ export class ProductosEComponent implements OnInit {
       (response)=>{
         console.log(response);
         //this.getProductosEmpresa();
+        Swal.fire({
+          icon: 'success',
+          title: 'Se han Enviada Productos a Sucursal',
+          text: '¡Puedes Revisar el cambio!',
+          footer: 'Envió de Producto Exitoso.'
+        })
       },
       (error)=>{
         console.log(<any>error);
@@ -82,6 +88,12 @@ export class ProductosEComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getProductosEmpresa();
+        Swal.fire({
+          icon: 'success',
+          title: 'Se ha agregado un Producto Correctamente',
+          text: '¡Puedes Revisar el cambio!',
+          footer: 'Puedes revisar el nuevo Producto.'
+        })
       },
       (error)=>{
         console.log(<any>error);
@@ -113,9 +125,21 @@ export class ProductosEComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getProductosEmpresa();
+        Swal.fire({
+          icon: 'warning',
+          title: 'Se han realizado cambios en el Producto',
+          text: '¡Puedes Revisar el Producto Actualizado!',
+          footer: 'Función concretada correctamente.'
+        })
       },
       (error)=>{
         console.log(<any>error);
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: 'No dejes campos vacios, ¡gracias!'
+        })
       }
     )
   }

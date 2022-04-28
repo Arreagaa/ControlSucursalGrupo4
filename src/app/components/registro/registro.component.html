@@ -34,22 +34,25 @@
                           <input type="text" class="form-control form-control-lg" id="inputNombre"
                           name="nombre" #nombre="ngModel"
                           [(ngModel)]="usuarioModelPost.nombre" required/>
-                          <label class="form-label" for="form3Example1m">Nombre</label>
+                          <div [hidden]="nombre.valid || nombre.pristine"
+                            class="alert alert-danger">Se requiere un Nombre para Registrarte.
+                          </div>
+                          <label class="form-label" for="form3Example1m">Nombre o Usuario</label>
                         </div>
                       </div>
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="text"id="form3Example8" class="form-control form-control-lg"/>
-                      <label class="form-label" for="form3Example8">Direccion</label>
+                      <input type="email"id="form3Example8" class="form-control form-control-lg"/>
+                      <label class="form-label" for="form3Example8">Dirección</label>
                     </div>
 
                     <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
-                      <h6 class="mb-0 me-4">Genero</h6>
+                      <h6 class="mb-0 me-4">Género</h6>
 
                       <div class="form-check form-check-inline mb-0 me-4">
                         <input class="form-check-input" type="radio"name="inlineRadioOptions"d="femaleGender"value="option1"/>
-                        <label class="form-check-label" for="femaleGender">mujer</label>
+                        <label class="form-check-label" for="femaleGender">Mujer</label>
                       </div>
 
                       <div class="form-check form-check-inline mb-0 me-4">
@@ -81,6 +84,9 @@
                       <input type="email"id="form3Example90"class="form-control form-control-lg" id="inputEmail"
                       name="email" #email="ngModel"
                       [(ngModel)]="usuarioModelPost.email" required/>
+                      <div [hidden]="email.valid || email.pristine"
+                        class="alert alert-danger">Se requiere el Correo de Contacto para Registrarte.
+                      </div>
                       <label class="form-label" for="form3Example90">Correo</label>
                     </div>
 
@@ -88,6 +94,9 @@
                       <input type="password" id="form3Example99" class="form-control form-control-lg" id="inputPassword"
                       name="password" #password="ngModel"
                       [(ngModel)]="usuarioModelPost.password" required/>
+                      <div [hidden]="password.valid || password.pristine"
+                        class="alert alert-danger">No olvides tu Clave de Acceso para Registrarte.
+                      </div>
                       <label class="form-label" for="form3Example99">Clave de Acceso</label>
                     </div>
 

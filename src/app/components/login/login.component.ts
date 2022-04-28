@@ -79,6 +79,12 @@ export class LoginComponent implements OnInit {
           }
           //this._router.navigate(['/Empresa']);
         });
+        Swal.fire({
+          icon: 'success',
+          title: 'Has Iniciado Sesión Correctamente',
+          text: '¡Bienvenido!',
+          footer: '<a>Esperamos que todo sea de tu agrado.</a>'
+        })
 
       },
       (error)=>{

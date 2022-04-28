@@ -36,6 +36,7 @@ export class DashboardComponent implements OnInit {
     this._sucursalesService.obtenerSucursales(this.idEmpresa, this.token).subscribe(
       (response) => {
         this.sucursalModelGet = response.sucursales;
+        console.log(response);
         console.log(response.sucursales);
         console.log(this.sucursalModelGet);
 
@@ -64,6 +65,12 @@ export class DashboardComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getSucursales();
+        Swal.fire({
+          icon: 'success',
+          title: 'Se ha agregado la Sucursal Correctamente',
+          text: '¡Puedes Revisar el cambio!',
+          footer: '<a>Puedes revisar la nueva Sucursal.</a>'
+        })
       },
       (error)=>{
         console.log(<any>error);
@@ -95,9 +102,21 @@ export class DashboardComponent implements OnInit {
       (response)=>{
         console.log(response);
         this.getSucursales();
+        Swal.fire({
+          icon: 'warning',
+          title: 'Se han realizado cambios en la Sucursal',
+          text: '¡Puedes Revisar la Sucursal Actualizada!',
+          footer: '<a>Función concretada correctamente.</a>'
+        })
       },
       (error)=>{
         console.log(<any>error);
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: 'No dejes campos vacios, ¡gracias!'
+        })
       }
     )
   }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-registro',
   templateUrl: './registro.component.html',
@@ -40,11 +42,21 @@ export class RegistroComponent implements OnInit {
     this._usuarioService.agregarUsuario(this.usuarioModelPost).subscribe(
       (response)=>{
         console.log(response);
-        //this.getUsuarios();
+        Swal.fire({
+          icon: 'success',
+          title: 'Te has Registrado Correctamente',
+          text: '¡Sea Bienvenido!',
+          footer: '<a>Empieza ya con nuestros Servicios.</a>'
+        })
       },
       (error)=>{
         console.log(<any>error);
-
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: '¡Revisa que la información este correcta!',
+          footer: '<a>No dejes campos vacios, ¡gracias!</a>'
+        })
       }
     )
   }

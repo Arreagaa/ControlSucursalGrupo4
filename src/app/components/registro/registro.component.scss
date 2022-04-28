@@ -4,7 +4,7 @@ body{
 }
 
 .card-registration .select-input.form-control[readonly]:not([disabled]) {
-  font-size: 1rem;
+  font-size: 18px;
   line-height: 2.15;
   padding-left: .75em;
   padding-right: .75em;
@@ -12,6 +12,22 @@ body{
 
 .card-registration .select-arrow {
   top: 13px;
+}
+
+#inputNombre{
+  font-size: 18px;
+}
+
+#form3Example8{
+  font-size: 18px;
+}
+
+#inputEmail{
+  font-size: 18px;
+}
+
+#inputPassword{
+  font-size: 18px;
 }
 
 .img{
