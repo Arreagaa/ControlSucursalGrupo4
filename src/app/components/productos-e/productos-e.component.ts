@@ -63,7 +63,7 @@ export class ProductosEComponent implements OnInit {
     this._productosEmpresaService.enviarProductosSucursal(this.productosSucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-        //this.getProductosEmpresa();
+        this.getProductosEmpresa();
         Swal.fire({
           icon: 'success',
           title: 'Se han Enviada Productos a Sucursal',
