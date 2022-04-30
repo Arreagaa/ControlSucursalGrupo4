@@ -76,7 +76,7 @@ export class ProductosEComponent implements OnInit {
         Swal.fire({
           icon: 'warning',
           title: 'Algo no anda bien...',
-          text: '¡Revisa que la información este correcta!',
+          text: '¡La cantidad a mandar es mucho mayor al Stock!',
           footer: '<a>No dejes campos vacios, ¡gracias!</a>'
         })
       }

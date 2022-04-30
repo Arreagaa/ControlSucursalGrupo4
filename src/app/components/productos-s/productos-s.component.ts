@@ -5,6 +5,8 @@ import { ProductosSucursal } from 'src/app/models/productosSucursal.model';
 import { UsuarioService } from 'src/app/services/usuario.service';
 import { ActivatedRoute } from '@angular/router';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'app-productos-s',
   templateUrl: './productos-s.component.html',
@@ -13,6 +15,22 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductosSComponent implements OnInit {
 
+  chartOptions = {
+    responsive: true,
+  };
+  //Nombres productos
+  chartLabels:any = [];
+  //cantidad de producto
+  chartData:any = [];
+  chartColors:any = [
+    {
+      backgroundColor: []
+    }
+  ];
+  chartLegend = true;
+  chartPlugins = [];
+
+
   public token;
   public idSucursal;
   public productoSucursalModelId=[];
@@ -20,18 +38,20 @@ export class ProductosSComponent implements OnInit {
   //SUCURSALES
   public productoSucursalModelGet: ProductosSucursal;
   public productoSucursalModelPost: ProductosSucursal;
-  //public productoSucursalModelId: ProductosSucursal;
+  public productoSucursalModeGetlId: ProductosSucursal;
 
   constructor(private _productosSucursalService: ProductosSucursalService, public _usuarioService: UsuarioService,
     public _activatedRoute: ActivatedRoute) {
     this.productoSucursalModelPost = new ProductosSucursal('','',0,'',0,'','');
-    //this.productoSucursalModelId = new ProductosSucursal('','',0,'',0,'','');
+    this.productoSucursalModeGetlId = new ProductosSucursal('','',0,'',0,'','');
     this.token = this._usuarioService.obtenerToken();
   }
 
   ngOnInit(): void {
     this._activatedRoute.paramMap.subscribe((dataRuta)=>{
-      this.getSucursales(dataRuta.get('idSucursal'))
+      this.getSucursales(dataRuta.get('idSucursal'));
+
+      this.idSucursal = dataRuta.get('idSucursal')
     })
     //this.getSucursales();
   }
@@ -43,9 +63,54 @@ export class ProductosSComponent implements OnInit {
         console.log(response.productosSucursal);
         console.log(this.productoSucursalModelId);
 
+        this.productoSucursalModelId.forEach(dato => {
+          this.chartLabels.push(dato.nombreProductoSucursal);
+          this.chartData.push(dato.cantidadVendida);
+          this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`)
+        });
+
       },
       (error)=>{
         console.log(<any>error)
+      }
+    )
+  }
+
+  getProductosEmpresaId(idSucursal){
+    this._productosSucursalService.obtenerProductosSucursalId(idSucursal, this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.productoSucursalModeGetlId = response.productosSucursal;
+        console.log(response);
+        console.log(this.productoSucursalModeGetlId);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  putProductosSucursal(){
+    this._productosSucursalService.editarProductosSucursal(this.productoSucursalModeGetlId, this._usuarioService.obtenerToken()).subscribe(
+      (response)=>{
+        console.log(response);
+        this.getSucursales(this.idSucursal.idSucursal);
+        this.getSucursales(this.idSucursal)
+        //this.getSucursales();
+        Swal.fire({
+          icon: 'warning',
+          title: 'Se han realizado cambios en el Producto',
+          text: '¡Puedes Revisar el Producto Actualizado!',
+          footer: 'Función concretada correctamente.'
+        })
+      },
+      (error)=>{
+        console.log(<any>error);
+        Swal.fire({
+          icon: 'warning',
+          title: 'Algo no anda bien...',
+          text: '¡Revisa que la información este correcta!',
+          footer: 'No dejes campos vacios, ¡gracias!'
+        })
       }
     )
   }
