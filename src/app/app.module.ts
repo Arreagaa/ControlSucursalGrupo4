@@ -17,7 +17,8 @@ import { ProductosEComponent } from './components/productos-e/productos-e.compon
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 import { ProductosSComponent } from './components/productos-s/productos-s.component';
 import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
-import { GraficaComponent } from './components/grafica/grafica.component';
+//import { GraficaComponent } from './components/grafica/grafica.component';
+import { ChartsModule } from '@rinminase/ng-charts';
 
 @NgModule({
   declarations: [
@@ -33,14 +34,15 @@ import { GraficaComponent } from './components/grafica/grafica.component';
     VerEmpresaComponent,
     ProductosSComponent,
     DashboardInicioComponent,
-    GraficaComponent
+    //GraficaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

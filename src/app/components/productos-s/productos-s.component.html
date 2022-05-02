@@ -13,7 +13,6 @@
                     <h1 class="font-weight-light">Productos de Sucursal</h1>
                     <br>
                     <p>Aquí podrá ver los productos con los que cuenta la sucursal de la empresa, y realizar múltiples funciones sobre los mismos, siempre puedes asegurarte de que tus cantidades de inventario son siempre exactas, todos estos dependerán completamente de la Empresa como tal, de los Productos que posee la Central.</p>
-
           </div>
            </div>
 
@@ -35,7 +34,6 @@
                     <th scope="col">stock</th>
                     <th scope="col">Cantidad Vendida</th>
                     <th scope="col">Vender Producto</th>
-
                   </tr>
                 </thead>
                 <tbody>
@@ -43,20 +41,48 @@
                     <td>{{ prodS.nombreProductoSucursal }}</td>
                     <td>{{ prodS.stockSucursal }}</td>
                     <td>{{ prodS.cantidadVendida }}</td>
-                    <td><button class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#modalVenderProductoSucursal"><i class="bi bi-box-arrow-right"></i> Vender Producto</button></td>
+                    <td><button class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#modalVenderProductoSucursal" (click)="getProductosEmpresaId(prodS._id)"><i class="bi bi-box-arrow-right"></i> Vender Producto</button></td>
                   </tr>
                 </tbody>
               </table>
-
-
             </div>
+          </div>
+        </div>
 
+        <div class="container px-4 px-lg-5">
+          <br>
+          <div class="card text-white bg my-5 py-4 text-center">
+            <div class="card-body"><p class="text-white m-0">La gráfica muestra todos los datos para que se pueda verificar de mejor la manera y tener un completo manejo de la información.</p>
+            </div>
+        </div>
+          <br>
+        <p>
+          <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="bi bi-info-circle"></i>
+              Información Importante
+          </a>
+        </p>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body">
+            En este apartado podremos ver una gráfica detallada sobre las ventas de los Productos de la Sucursal, lleva un mejor control por este medio, en donde podras ver que
+            Productos son los más populares y vendidos, así como el progreso de Venta de la Sucursal.
+          </div>
+        </div>
+        <br>
+          <br>
+          <br>
+          <div style="display: block;">
+            <canvas baseChart
+              chartType="pie"
+              [data]="chartData"
+              [colors]="chartColors"
+              [labels]="chartLabels"
+              [options]="chartOptions"
+              [plugins]="chartPlugins"
+              [legend]="chartLegend">
+            </canvas>
           </div>
           <br>
           <br>
-          <div class="mb-3 text-center">
-            <a class="btn btn-primary" routerLink="/grafica"><i class="bi bi-check" ></i> Verifica la Venta de Productos</a>
-          </div>
           <br>
           <br>
           <div class="progress">
@@ -64,12 +90,13 @@
           </div>
         </div>
 
-        <!--Modal Agregar Sucursal-->
+
+    <!--Modal Vender Sucursal-->
     <div class="modal fade" id="modalVenderProductoSucursal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header" style="background-color: #6793F4">
-            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Agregar Sucursal</h5>
+            <h5 class="modal-title" id="exampleModalLabel" style="color: white">Vender Producto Sucursal</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -77,19 +104,21 @@
 
               <div class="mb-3">
                 <label for="inputNombreProductoSucursal" class="form-label">Producto a Vender</label>
-                <input placeholder="Producto a la Venta" type="text" class="form-control" id="inputNombreProductoSucursal" name="nombreProductoSucursal"  required>
+                <input placeholder="Producto a la Venta" type="text" class="form-control" id="inputNombreProductoSucursal" name="nombreProductoSucursal"
+                #nombreProductoSucursal="ngModel" [(ngModel)]="productoSucursalModeGetlId.nombreProductoSucursal">
               </div>
 
               <div class="mb-3">
                 <label for="inputCantidadVendidos" class="form-label">Cantidad a Vender</label>
-                <input placeholder="Cantidad Vendida" type="number" class="form-control" id="inputCantidadVendidos" name="cantidadVendidos" required>
+                <input placeholder="Cantidad Vendida" type="number" class="form-control" id="inputCantidadVendidos" name="cantidadVendidos"
+                #cantidadVendidos="ngModel" [(ngModel)]="productoSucursalModeGetlId.cantidadVendida">
               </div>
 
             </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Vender</button>
+            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="putProductosSucursal()">Vender</button>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ export class ProductosEComponent implements OnInit {
     this._productosEmpresaService.enviarProductosSucursal(this.productosSucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
-        //this.getProductosEmpresa();
+        this.getProductosEmpresa();
         Swal.fire({
           icon: 'success',
           title: 'Se han Enviada Productos a Sucursal',
@@ -76,7 +76,7 @@ export class ProductosEComponent implements OnInit {
         Swal.fire({
           icon: 'warning',
           title: 'Algo no anda bien...',
-          text: '¡Revisa que la información este correcta!',
+          text: '¡La cantidad a mandar es mucho mayor al Stock!',
           footer: '<a>No dejes campos vacios, ¡gracias!</a>'
         })
       }
