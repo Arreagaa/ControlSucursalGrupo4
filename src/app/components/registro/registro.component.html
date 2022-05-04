@@ -26,79 +26,67 @@
                 </div>
                 <div class="col-xl-6">
                   <div class="card-body p-md-5 text-black">
-                    <h3 class="mb-5 text-uppercase">Registrate aquí</h3>
+                    <h3 class=" h3 mb-5 text-uppercase">Registrate aquí</h3>
 
                     <div class="row">
-                      <div class="col-md-6 mb-4">
+                      <label class="form-label" for="form3Example1m">Nombre de la Empresa</label>
+                      <div class="mb-4">
                         <div class="form-outline">
-                          <input type="text" class="form-control form-control-lg" id="inputNombre"
+                          <input type="text" placeholder="Nombre Empresa" class="form-control form-control-lg" id="inputNombre"
                           name="nombre" #nombre="ngModel"
                           [(ngModel)]="usuarioModelPost.nombre" required/>
                           <div [hidden]="nombre.valid || nombre.pristine"
                             class="alert alert-danger">Se requiere un Nombre para Registrarte.
                           </div>
-                          <label class="form-label" for="form3Example1m">Nombre de la Empresa</label>
                         </div>
                       </div>
                     </div>
 
+                    <label class="form-label" for="form3Example8">Dirección</label>
                     <div class="form-outline mb-4">
-                      <input type="email"id="form3Example8" class="form-control form-control-lg"/>
-                      <label class="form-label" for="form3Example8">Dirección</label>
+                      <input type="email" placeholder="Dirección" id="form3Example8" class="form-control form-control-lg"/>
                     </div>
 
                     <div class="row">
-                      <div class="col-md-6 mb-4">
+                    <label class="form-label" for="form3Example1m">Tipo de la Empresa</label>
+                      <div class="mb-4">
                         <div class="form-outline">
-                          <input type="text" class="form-control form-control-lg" id="inputTipo"
+                          <input type="text" placeholder="Tipo empresa" class="form-control form-control-lg" id="inputTipo"
                           name="tipo" #tipo="ngModel"
                           [(ngModel)]="usuarioModelPost.tipo" required/>
                           <div [hidden]="tipo.valid || tipo.pristine"
                             class="alert alert-danger">Se requiere el Tipo de la Empresa para Registrarte.
                           </div>
-                          <label class="form-label" for="form3Example1m">Tipo de la Empresa</label>
                         </div>
                       </div>
                     </div>
 
-                    <div class="row">
-                      <div class="col-md-6 mb-4">
-                        <select class="select">
-                          <option value="1">Pais</option>
-                          <option value="2">Guatemala</option>
-                          <option value="3">El Salvador</option>
-                          <option value="4">Mexico</option>
-                          <option value="5">Estados Unidos</option>
-                          <option value="6">Otro</option>
-                        </select>
-                      </div>
-                      <div class="col-md-6 mb-4"></div>
-                    </div>
 
                     <div class="form-outline mb-4">
-                      <input type="email"id="form3Example90"class="form-control form-control-lg" id="inputEmail"
+                      <label class="form-label" for="form3Example90">Correo</label>
+                      <input type="email" placeholder="@gmail.com" id="form3Example90"class="form-control form-control-lg" id="inputEmail"
                       name="email" #email="ngModel"
                       [(ngModel)]="usuarioModelPost.email" required/>
                       <div [hidden]="email.valid || email.pristine"
                         class="alert alert-danger">Se requiere el Correo de Contacto para Registrarte.
                       </div>
-                      <label class="form-label" for="form3Example90">Correo</label>
+
                     </div>
 
                     <div class="form-outline mb-4">
-                      <input type="password" id="form3Example99" class="form-control form-control-lg" id="inputPassword"
+                      <label class="form-label" for="form3Example99">Clave de Acceso</label>
+                      <input type="password" placeholder="Password" id="form3Example99" class="form-control form-control-lg" id="inputPassword"
                       name="password" #password="ngModel"
                       [(ngModel)]="usuarioModelPost.password" required/>
                       <div [hidden]="password.valid || password.pristine"
                         class="alert alert-danger">No olvides tu Clave de Acceso para Registrarte.
                       </div>
-                      <label class="form-label" for="form3Example99">Clave de Acceso</label>
+
                     </div>
 
                     <div class="d-flex justify-content-end pt-3">
-                      <button type="button" class="btn btn-light btn-lg" routerLink="/Inicio">
-                        Regresar
-                      </button>
+
+                      <button type="button" class="btn btn-primary-r btn-lg" routerLink="/Inicio">Regresar</button>
 
                       <button type="button" class="btn btn-primary btn-lg ms-2" (click)="postUsuarios()" routerLink="/Login">
                         Registar
