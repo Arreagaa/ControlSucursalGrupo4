@@ -19,6 +19,8 @@ import { ProductosSComponent } from './components/productos-s/productos-s.compon
 import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
 //import { GraficaComponent } from './components/grafica/grafica.component';
 import { ChartsModule } from '@rinminase/ng-charts';
+import { BuscarPipe } from './pipes/buscar.pipe';
+import { BuscarPSucursalPipe } from './pipes/buscar-psucursal.pipe';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { ChartsModule } from '@rinminase/ng-charts';
     VerEmpresaComponent,
     ProductosSComponent,
     DashboardInicioComponent,
+    BuscarPipe,
+    BuscarPSucursalPipe,
     //GraficaComponent
   ],
   imports: [

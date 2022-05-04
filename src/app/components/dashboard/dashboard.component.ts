@@ -67,11 +67,12 @@ export class DashboardComponent implements OnInit {
     )
   }
 
-  postSucursales(){
+  postSucursales(addForm){
     this._sucursalesService.agregarSucursal(this.sucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getSucursales(this.idEmpresa);
+        addForm.reset();
         Swal.fire({
           icon: 'success',
           title: 'Se ha agregado la Sucursal Correctamente',

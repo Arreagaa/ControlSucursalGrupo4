@@ -15,6 +15,8 @@ import Swal from 'sweetalert2'
 })
 export class ProductosSComponent implements OnInit {
 
+  public buscarPSucursal;
+
   chartOptions = {
     responsive: true,
   };
@@ -97,9 +99,9 @@ export class ProductosSComponent implements OnInit {
         this.getSucursales(this.idSucursal)
         //this.getSucursales();
         Swal.fire({
-          icon: 'warning',
-          title: 'Se han realizado cambios en el Producto',
-          text: '¡Puedes Revisar el Producto Actualizado!',
+          icon: 'success',
+          title: 'Se han realizado una Venta exitosamente',
+          text: '¡Puedes Revisar la Cantidad Vendida!',
           footer: 'Función concretada correctamente.'
         })
       },
@@ -108,7 +110,7 @@ export class ProductosSComponent implements OnInit {
         Swal.fire({
           icon: 'warning',
           title: 'Algo no anda bien...',
-          text: '¡Revisa que la información este correcta!',
+          text: '¡La cantidad a vender es mucho mayor al Stock disponible!',
           footer: 'No dejes campos vacios, ¡gracias!'
         })
       }

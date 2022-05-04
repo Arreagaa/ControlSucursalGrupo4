@@ -15,12 +15,14 @@
                 <div class="col-lg-5">
                     <h1 class="font-weight-light">Productos de Empresa</h1>
                     <br>
-                    <p>Aqui podra ver los productos con los que cuenta la empres, donde podra modificar, eliminar y buscar el producto deseado</p>
+                    <p>Aquí podra ver los Productos con los que cuenta la Empresa, donde podra Modificar, Eliminar y Buscar el Producto deseado. Puedes buscar por el nombre del Producto
+                      , por Proveedores o por la Disponibilidad.</p>
                     <div class="input-group">
-                      <input type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
+                      <input [(ngModel)]="buscar" type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
                       <button type="button" class="btn btn-outline-primary">Buscar</button>
                     </div>
-                    <div class="form-check form-switch">
+                    <br>
+                    <!--<div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
                       <label class="form-check-label" for="flexSwitchCheckDefault">Buscar Por Stock</label>
                     </div>
@@ -31,7 +33,7 @@
                     <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
                       <label class="form-check-label" for="flexSwitchCheckChecked">Nombre Proveedor</label>
-                    </div>
+                    </div>-->
 
           </div>
            </div>
@@ -58,7 +60,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let prodE of productosEmpresaModelGet">
+                  <tr *ngFor="let prodE of productosEmpresaModelGet | buscar:buscar ">
                     <td>{{ prodE.nombreProducto }}</td>
                     <td>{{ prodE.nombreProveedor }}</td>
                     <td>{{ prodE.stock }}</td>
@@ -84,7 +86,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form #addForm="ngForm">
 
               <div class="mb-3">
                 <label for="inputNombreProductoEmpresa" class="form-label">Nombre del Producto</label>
@@ -117,7 +119,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="postProductosEmpresa()" data-bs-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-primary" (click)="postProductosEmpresa(addForm)" data-bs-dismiss="modal">Agregar</button>
           </div>
         </div>
       </div>
@@ -176,7 +178,7 @@
       <br>
 
       <div class="offcanvas-body">
-        <form>
+        <form #sendForm="ngForm">
 
           <div class="mb-3">
             <label for="inputNombreProductoSucursal" class="form-label">Nombre del Producto a Mandar</label>
@@ -209,7 +211,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="offcanvas">Close</button>
-        <button type="button" class="btn btn-primary" (click)="sendProductosEmpresa()" data-bs-dismiss="offcanvas">Enviar</button>
+        <button type="button" class="btn btn-primary" (click)="sendProductosEmpresa(sendForm)" data-bs-dismiss="offcanvas">Enviar</button>
       </div>
     </div>
 

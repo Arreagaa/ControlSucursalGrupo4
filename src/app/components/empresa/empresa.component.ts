@@ -57,11 +57,12 @@ export class EmpresaComponent implements OnInit {
     )
   }
 
-  postEmpresas(){
+  postEmpresas(addForm){
     this._empresaService.agregarEmpresa(this.empresaModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getEmpresas();
+        addForm.reset();
         Swal.fire({
           icon: 'success',
           title: 'Se ha agregado la Empresa Correctamente',

@@ -96,7 +96,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <form>
+            <form #addForm="ngForm">
 
               <div class="mb-3">
                 <label for="inputNombreSucursal" class="form-label">Nombre de la Sucursal</label>
@@ -120,7 +120,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="postSucursales()" data-bs-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-primary" (click)="postSucursales(addForm)" data-bs-dismiss="modal">Agregar</button>
           </div>
         </div>
       </div>

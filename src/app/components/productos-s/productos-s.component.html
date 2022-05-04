@@ -13,6 +13,10 @@
                     <h1 class="font-weight-light">Productos de Sucursal</h1>
                     <br>
                     <p>Aquí podrá ver los productos con los que cuenta la sucursal de la empresa, y realizar múltiples funciones sobre los mismos, siempre puedes asegurarte de que tus cantidades de inventario son siempre exactas, todos estos dependerán completamente de la Empresa como tal, de los Productos que posee la Central.</p>
+                    <div class="input-group">
+                      <input [(ngModel)]="buscarPSucursal" type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
+                      <button type="button" class="btn btn-outline-primary">Buscar</button>
+                    </div>
           </div>
            </div>
 
@@ -37,7 +41,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let prodS of productoSucursalModelId">
+                  <tr *ngFor="let prodS of productoSucursalModelId | buscarPSucursal:buscarPSucursal">
                     <td>{{ prodS.nombreProductoSucursal }}</td>
                     <td>{{ prodS.stockSucursal }}</td>
                     <td>{{ prodS.cantidadVendida }}</td>

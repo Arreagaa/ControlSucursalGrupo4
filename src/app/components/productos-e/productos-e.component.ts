@@ -15,6 +15,7 @@ import Swal from 'sweetalert2'
 export class ProductosEComponent implements OnInit {
 
   public token;
+  public buscar;
 
   //PRODUCTOS DE LA EMPRESA
   public productosEmpresaModelGet: ProductosEmpresa;
@@ -59,11 +60,12 @@ export class ProductosEComponent implements OnInit {
     )
   }
 
-  sendProductosEmpresa(){
+  sendProductosEmpresa(sendForm){
     this._productosEmpresaService.enviarProductosSucursal(this.productosSucursalModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getProductosEmpresa();
+        sendForm.reset();
         Swal.fire({
           icon: 'success',
           title: 'Se han Enviada Productos a Sucursal',
@@ -83,11 +85,12 @@ export class ProductosEComponent implements OnInit {
     )
   }
 
-  postProductosEmpresa(){
+  postProductosEmpresa(addForm){
     this._productosEmpresaService.agregarProductoEmpresa(this.productosEmpresaModelPost, this._usuarioService.obtenerToken()).subscribe(
       (response)=>{
         console.log(response);
         this.getProductosEmpresa();
+        addForm.reset();
         Swal.fire({
           icon: 'success',
           title: 'Se ha agregado un Producto Correctamente',
