@@ -5,6 +5,7 @@ export class Empresa {
     public email: String,
     public password: String,
     public tipo: String,
+    public municipio: String,
     public rol: String
   ){}
 }

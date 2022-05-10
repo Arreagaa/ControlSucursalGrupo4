@@ -63,7 +63,7 @@
                 <div class="col-md-8">
                   <div class="card-body">
                     <h5 class="card-title" routerLinkActive="active">{{ emp.nombre }}</h5>
-                    <p class="card-text">Empresa de tipo {{emp.tipo}} dedicada a otorgar servicios de buena calidad.
+                    <p class="card-text">Empresa de tipo {{emp.tipo}} dedicada a otorgar servicios de buena calidad, esta ubicada en {{emp.municipio}}.
                     </p>
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
@@ -134,7 +134,7 @@
                 <div class="mb-3">
                   <label for="inputMunicipio" class="form-label">Municipio o Ubicación</label>
                 <input type="select" class="form-control" placeholder="Guatemala" name="municipio" #municipio="ngModel"
-                [(ngModel)]="empresaModelPost.tipo" required>
+                [(ngModel)]="empresaModelPost.municipio" required>
                 <div [hidden]="municipio.valid || municipio.pristine"
                     class="alert alert-danger">Indica donde se encuentra la Empresa..
                   </div>
@@ -187,7 +187,7 @@
                 <div class="mb-3">
                   <label for="inputMunicipio" class="form-label">Municipio o Ubicación</label>
                 <input type="select" class="form-control" placeholder="Guatemala" id="inputMunicipio" name="municipio" #municipio="ngModel"
-                [(ngModel)]="empresaModelId.tipo" required>
+                [(ngModel)]="empresaModelId.municipio" required>
               </div>
               </div>
 
