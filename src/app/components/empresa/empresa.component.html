@@ -130,6 +130,17 @@
               </div>
               </div>
 
+              <div>
+                <div class="mb-3">
+                  <label for="inputMunicipio" class="form-label">Municipio o Ubicación</label>
+                <input type="select" class="form-control" placeholder="Guatemala" name="municipio" #municipio="ngModel"
+                [(ngModel)]="empresaModelPost.tipo" required>
+                <div [hidden]="municipio.valid || municipio.pristine"
+                    class="alert alert-danger">Indica donde se encuentra la Empresa..
+                  </div>
+              </div>
+              </div>
+
             </form>
           </div>
           <div class="modal-footer">
@@ -168,6 +179,14 @@
                 <div class="mb-3">
                   <label for="inputTipo" class="form-label">Tipo de Empresa</label>
                 <input type="select" class="form-control" placeholder="Restaurante" id="inputTipo" name="tipo" #tipo="ngModel"
+                [(ngModel)]="empresaModelId.tipo" required>
+              </div>
+              </div>
+
+              <div>
+                <div class="mb-3">
+                  <label for="inputMunicipio" class="form-label">Municipio o Ubicación</label>
+                <input type="select" class="form-control" placeholder="Guatemala" id="inputMunicipio" name="municipio" #municipio="ngModel"
                 [(ngModel)]="empresaModelId.tipo" required>
               </div>
               </div>
