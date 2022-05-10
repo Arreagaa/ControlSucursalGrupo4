@@ -59,24 +59,31 @@ export class ProductosSComponent implements OnInit {
   }
 
   getSucursales(idSucursal){
+    this.productoSucursalModelId = [];
     this._productosSucursalService.obtenerProductosSucursal(idSucursal, this.token).subscribe(
       (response) => {
         this.productoSucursalModelId = response.productosSucursal;
         console.log(response.productosSucursal);
         console.log(this.productoSucursalModelId);
-
-        this.productoSucursalModelId.forEach(dato => {
-          this.chartLabels.push(dato.nombreProductoSucursal);
-          this.chartData.push(dato.cantidadVendida);
-          this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`);
-          console.log(this.productoSucursalModelId);
-        });
-
+        this.putGrafica(this.productoSucursalModelId)
       },
       (error)=>{
         console.log(<any>error)
       }
     )
+  }
+
+  putGrafica(dato){
+    this.chartData = [];
+    this.chartLabels = [];
+
+    this.productoSucursalModelId.forEach(dato => {
+      this.chartLabels.push(dato.nombreProductoSucursal);
+      this.chartData.push(dato.cantidadVendida);
+      this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`);
+      console.log(this.productoSucursalModelId);
+    });
+
   }
 
   getProductosEmpresaId(idSucursal){
