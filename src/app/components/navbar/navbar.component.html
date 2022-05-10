@@ -25,8 +25,15 @@
         <a (click)="logOut()" class="nav-link active" aria-current="page" routerLink="/Login" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA' || 'ROL_ADMINISTRADOR'">Cerrar Sesión</a>
       </li>
 
-      <button class="profile-btn">
+      <button class="profile-btn" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_EMPRESA'">
         <img src="https://assets.easybroker.com/property_images/1898799/28976279/EB-GG8799.png?version=1607183541" />
+        <span><li class="nav-item">
+          <a class="nav-link disabled" *ngIf="_usuarioService.obtenerIdentidad()">{{ _usuarioService.obtenerIdentidad().nombre }}</a>
+        </li></span>
+      </button>
+
+      <button class="profile-btn" *ngIf="_usuarioService.obtenerIdentidad().rol === 'ROL_ADMINISTRADOR'">
+        <img src="https://www.aycelaborytax.com/wp-content/uploads/2019/02/tipos-administrador.jpg" />
         <span><li class="nav-item">
           <a class="nav-link disabled" *ngIf="_usuarioService.obtenerIdentidad()">{{ _usuarioService.obtenerIdentidad().nombre }}</a>
         </li></span>
