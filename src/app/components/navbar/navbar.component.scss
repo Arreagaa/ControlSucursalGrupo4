@@ -13,16 +13,19 @@
 }
 
 .nav-item{
+  padding-right: 10px;
   text-align: end;
   display: flex;
 }
 
 .nav-link{
+  padding-right: 10px;
   text-align: end;
   display: flex;
 }
 
 .profile-btn {
+  padding-right: 10px;
   padding: 0;
   border: 0;
   background-color: transparent;
@@ -41,6 +44,7 @@
   }
 
   span {
+    padding-right: 10px;
     color: var(--main-color);
     font-size: 16px;
     line-height: 24px;
