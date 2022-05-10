@@ -10,9 +10,11 @@ import { ProductosEComponent } from './components/productos-e/productos-e.compon
 import { VerEmpresaComponent } from './components/ver-empresa/ver-empresa.component';
 import { ProductosSComponent } from './components/productos-s/productos-s.component';
 import { DashboardInicioComponent } from './components/dashboard-inicio/dashboard-inicio.component';
+import { EmpresaGuard } from './services/empresa.guard';
+import { AdministradorGuard } from './services/administrador.guard';
 
 //aqui se importan los componentes
-const routes: Routes = [
+/*const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Inicio', component: InicioComponent},
   {path: 'Registro', component: RegistroComponent},
@@ -24,7 +26,32 @@ const routes: Routes = [
   {path:'verEmpresa/:idEmpresa', component:VerEmpresaComponent},
   {path:'productoS/:idSucursal',component: ProductosSComponent},
   {path: 'DashboardInicio', component: DashboardInicioComponent},
-];
+];*/
+
+const routes: Routes = [
+  {path: 'Login', component: LoginComponent},
+  {path: 'Registro', component: RegistroComponent},
+  {path: 'DashboardInicio', component: DashboardInicioComponent},
+  {path: 'Inicio', component: InicioComponent},
+
+  {
+    path: 'Empresa', canActivate: [EmpresaGuard], children:[
+      {path: 'Inicio', component: InicioComponent},
+      {path: 'Dashboard', component: DashboardComponent},
+      {path:'productoE', component:ProductosEComponent},
+      {path:'productoS/:idSucursal',component: ProductosSComponent}
+    ]
+  },
+  {
+    path: 'Admin', canActivate: [AdministradorGuard], children:[
+      {path: 'Inicio', component: InicioComponent},
+      {path: 'Empresa', component: EmpresaComponent},
+      {path: 'Dashboard/:idEmpresa', component: DashboardComponent},
+
+    ]
+  },
+  { path: "**", component: LoginComponent }
+]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

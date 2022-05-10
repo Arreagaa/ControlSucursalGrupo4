@@ -30,4 +30,15 @@ export class ProductosSucursalService {
 
     return this._http.put(this.url + '/venta/' + modeloProductosSucursal.idSucursal, parametros, { headers: headersToken })
   }
+
+  obtenerStockProductosSucursal(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/buscarStockProductoSucursal', {headers: headersToken})
+  }
+
+  obtenerStockProductosSucursalMenor(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/buscarStockProductoSucursalMenor', {headers: headersToken})
+  }
+
 }

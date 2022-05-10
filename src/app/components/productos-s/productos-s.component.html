@@ -4,7 +4,7 @@
         <div class="container px-4 px-lg-5">
           <br>
           <br>
-          <button class="btn btn-primary" type="button"  routerLink="/productoE"><i class="bi bi-arrow-left"></i>
+          <button class="btn btn-primary" type="button"  routerLink="/Empresa/productoE"><i class="bi bi-arrow-left"></i>
             Regresar al Control de Productos
         </button>
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
@@ -17,6 +17,9 @@
                       <input [(ngModel)]="buscarPSucursal" type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
                       <button type="button" class="btn btn-outline-primary">Buscar</button>
                     </div>
+                    <br>
+                    <button type="button" class="btn btnStock" (click)="getProductosStockSucursal()"><i class="bi bi-bag-check"></i> Ordenar por Stock Mayor</button>
+                    <button type="button" class="btn btnStock" (click)="getProductosStockSucursalMenor()"><i class="bi bi-bag-check"></i> Ordenar por Stock Menor</button>
           </div>
            </div>
 
@@ -35,7 +38,7 @@
                 <thead class="thead-dark">
                   <tr>
                     <th scope="col">Nombre Producto</th>
-                    <th scope="col">stock</th>
+                    <th scope="col">Cantidad en Existencia</th>
                     <th scope="col">Cantidad Vendida</th>
                     <th scope="col">Vender Producto</th>
                   </tr>

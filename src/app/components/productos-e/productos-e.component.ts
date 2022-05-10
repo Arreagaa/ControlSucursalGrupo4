@@ -147,4 +147,32 @@ export class ProductosEComponent implements OnInit {
     )
   }
 
+  getProductosStockEmpresa(){
+    this._productosEmpresaService.obtenerStockProductoEmpresa(this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.productosEmpresaModelGet = response.productos;
+
+        console.log(response);
+        console.log(this.productosEmpresaModelGet);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  getProductosStockEmpresaMenor(){
+    this._productosEmpresaService.obtenerStockProductosEmpresaMenor(this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.productosEmpresaModelGet = response.productos;
+
+        console.log(response);
+        console.log(this.productosEmpresaModelGet);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
 }

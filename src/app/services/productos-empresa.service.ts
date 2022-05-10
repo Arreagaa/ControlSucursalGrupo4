@@ -51,4 +51,14 @@ export class ProductosEmpresaService {
 
     return this._http.post(this.url + '/enviarProducto', parametros, {headers: headersToken})
   }
+
+  obtenerStockProductoEmpresa(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/buscarStockProducto', {headers: headersToken})
+  }
+
+  obtenerStockProductosEmpresaMenor(token): Observable<any>{
+    let headersToken = this.headersVariable.set('Authorization', token);
+    return this._http.get(this.url + '/buscarStockProductoMenor', {headers: headersToken})
+  }
 }

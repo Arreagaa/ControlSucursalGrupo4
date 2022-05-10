@@ -8,6 +8,45 @@
   margin-left: 10px;
 }
 
+.navbar-brand{
+  color: #00305B;
+}
+
+.nav-item{
+  text-align: end;
+  display: flex;
+}
+
+.nav-link{
+  text-align: end;
+  display: flex;
+}
+
+.profile-btn {
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  border-left: 2px solid #ddd;
+
+  img {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 4px;
+  }
+
+  span {
+    color: var(--main-color);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+}
+
 /*#header {
   background-color:#6793F4;
   color:white;

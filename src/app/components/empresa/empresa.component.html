@@ -68,7 +68,7 @@
                     <p class="card-text"><small class="text-muted">Contacto por {{ emp.email }}</small></p>
                     <div class="space md-4">
                       <a type="button" class="card-link" data-bs-toggle="modal" data-bs-target="#modalEditarEmpresa" (click)="getEmpresaId(emp._id)"><i class="bi bi-pencil-square"></i> Modificar</a>
-                      <a [routerLink]="['/Dashboard', emp._id]" class="card-link" routerLinkActive="active"> <i class="bi bi-shop"></i> Sucuarsales</a>
+                      <a [routerLink]="['/Admin/Dashboard', emp._id]" class="card-link" routerLinkActive="active"> <i class="bi bi-shop"></i> Sucuarsales</a>
                      <!-- <a [routerLink]="['/verEmpresa', emp._id]" class="card-link" routerLinkActive="active"> <i class="bi bi-shop"></i> Sucuarsales</a>-->
                   </div>
                   </div>

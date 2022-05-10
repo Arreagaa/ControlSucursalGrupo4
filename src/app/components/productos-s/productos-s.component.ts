@@ -68,7 +68,8 @@ export class ProductosSComponent implements OnInit {
         this.productoSucursalModelId.forEach(dato => {
           this.chartLabels.push(dato.nombreProductoSucursal);
           this.chartData.push(dato.cantidadVendida);
-          this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`)
+          this.chartColors[0].backgroundColor.push(`#${ Math.floor(Math.random()*16777215).toString(16)}`);
+          console.log(this.productoSucursalModelId);
         });
 
       },
@@ -84,6 +85,34 @@ export class ProductosSComponent implements OnInit {
         this.productoSucursalModeGetlId = response.productosSucursal;
         console.log(response);
         console.log(this.productoSucursalModeGetlId);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  getProductosStockSucursal(){
+    this._productosSucursalService.obtenerStockProductosSucursal(this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.productoSucursalModelId = response.productosSucursal;
+
+        console.log(response);
+        console.log(this.productoSucursalModelId);
+      },
+      (error)=>{
+        console.log(<any>error)
+      }
+    )
+  }
+
+  getProductosStockSucursalMenor(){
+    this._productosSucursalService.obtenerStockProductosSucursalMenor(this._usuarioService.obtenerToken()).subscribe(
+      (response) => {
+        this.productoSucursalModelId = response.productosSucursal;
+
+        console.log(response);
+        console.log(this.productoSucursalModelId);
       },
       (error)=>{
         console.log(<any>error)

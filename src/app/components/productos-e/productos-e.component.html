@@ -8,7 +8,7 @@
             Agregar Producto a la Empresa
         </button>
 
-        <button class="btn btn-back" id="botonBack" routerLink="/Dashboard"><i class="bi bi-arrow-left"></i> Regresar a Control de Sucursales</button>
+        <button class="btn btn-back" id="botonBack" routerLink="/Empresa/Dashboard"><i class="bi bi-arrow-left"></i> Regresar a Control de Sucursales</button>
 
             <div class="row gx-4 gx-lg-5 align-items-center my-5">
                 <div class="col-lg-5"><img class="img-fluid rounded mb-4 mb-lg-0" src="https://cdn.informa.es/sites/5c1a2fd74c7cb3612da076ea/pages/5c5026610fa1c000c25b5631/files/analisis-pagos-3.svg?1645775484"/></div>
@@ -21,6 +21,9 @@
                       <input [(ngModel)]="buscar" type="Buscar" class="form-control rounded" placeholder="Buscar" aria-label="Buscar" aria-describedby="search-addon" />
                       <button type="button" class="btn btn-outline-primary">Buscar</button>
                     </div>
+                    <br>
+                    <button type="button" class="btn btnStock" (click)="getProductosStockEmpresa()"><i class="bi bi-bag-check"></i> Ordenar por Stock Mayor</button>
+                    <button type="button" class="btn btnStock" (click)="getProductosStockEmpresaMenor()"><i class="bi bi-bag-check"></i> Ordenar por Stock Menor</button>
                     <br>
                     <!--<div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
