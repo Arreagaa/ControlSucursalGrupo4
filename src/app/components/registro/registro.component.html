@@ -63,6 +63,21 @@
                       </div>
                     </div>
 
+                    <div class="row">
+                      <label class="form-label" for="form3Example1m">Nombre del Municipio</label>
+                      <div class="mb-4">
+                        <div class="form-outline">
+                          <input type="text" placeholder="Municipio" class="form-control form-control-lg" id="inputMunicipio"
+                          name="municipio" #municipio="ngModel"
+                          [(ngModel)]="usuarioModelPost.municipio" required/>
+                          <div [hidden]="municipio.valid || municipio.pristine"
+                            class="alert alert-danger">Se requiere un Municipio para continuar
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
 
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form3Example90">Correo</label>
